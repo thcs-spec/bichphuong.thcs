@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Học Liệu Số Ngữ Văn - Cô Nguyễn Thị Bích Phương | THCS Khánh Hội</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                        },
+                        petal: {
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            500: '#ec4899',
+                            600: '#db2777',
+                        },
+                        mint: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                        },
+                        pastelSky: '#e0f2fe'
+                    },
+                    fontFamily: {
+                        sans: ['Quicksand', 'Nunito', 'Segoe UI', 'sans-serif'],
+                        serif: ['Playfair Display', 'Merriweather', 'serif']
+                    },
+                    boxShadow: {
+                        'soft-warm': '0 10px 25px -5px rgba(249, 115, 22, 0.12), 0 8px 10px -6px rgba(249, 115, 22, 0.08)',
+                        'cute': '0 6px 0px 0px #fed7aa',
+                        'cute-press': '0 2px 0px 0px #fed7aa'
+                    }
+                }
+            }
+        }
+    </script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&amp;family=Quicksand:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Font Awesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- Canvas Confetti for Game Celebration -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fffaf5;
+            overflow-x: hidden;
+        }
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Cute floating animation */
+        @keyframes gentle-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: gentle-bounce 3.5s ease-in-out infinite;
+        }
+        @keyframes spin-slow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 20s linear infinite;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fff7ed;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #fdba74;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #fb923c;
+        }
+        /* Flipbook page effect */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .preserve-3d {
+            transform-style: preserve-3d;
+        }
+
+/* Responsive layout and mobile swipe cards */
+html { scroll-padding-top: 90px; }
+img { max-width: 100%; }
+@media (max-width: 767px) {
+  .benefit-carousel {
+    display:flex !important; gap:16px !important; overflow-x:auto;
+    scroll-snap-type:x mandatory; scroll-padding-inline:16px;
+    overscroll-behavior-inline:contain; -webkit-overflow-scrolling:touch;
+    padding: 4px 16px 18px; margin-left:-16px; margin-right:-16px;
+    scrollbar-width:none;
+  }
+  .benefit-carousel::-webkit-scrollbar { display:none; }
+  .benefit-card { flex:0 0 min(84vw, 360px); min-width:0; scroll-snap-align:center; }
+  .benefit-card img { width:100%; height:auto; aspect-ratio:1; object-fit:cover; }
+  .benefit-dots { display:flex; justify-content:center; align-items:center; gap:8px; margin-top:12px; }
+  .benefit-dots span { width:8px; height:8px; border-radius:999px; background:#e9bfd5; transition:all .2s; }
+  .benefit-dots span.active { width:24px; background:#ec4899; }
+  .benefit-hint { font-size:12px; color:#64748b; text-align:center; margin-top:8px; font-weight:600; }
+  #about h2 { overflow-wrap:anywhere; }
+  #hub button, #interactive button { max-width:100%; }
+  .heading-font { line-height:1.2; }
+}
+@media (max-width: 380px) {
+  .benefit-card { flex-basis:86vw; }
+  #about h2 { font-size:1.85rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,.animate-spin-slow,.animate-bounce { animation:none !important; }
+  .benefit-carousel { scroll-behavior:auto; }
+}
+
+    .infographic-cover-image{border-color:#f9a8d4;box-shadow:0 9px 24px #ec48992b}
+
+/* Avatar ảnh mới: viền hồng mỏng, không biến dạng */
+.teacher-avatar-wrap{background:transparent!important;padding:3px!important;border:2px solid #ff78ac!important;border-radius:50%!important;box-shadow:0 4px 14px rgba(255,101,172,.14)!important;overflow:hidden!important;}
+.teacher-avatar-circle{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center center!important;border-radius:50%!important;}
+</style>
+<style>
+.flipbook-feature-layout{display:grid;grid-template-columns:minmax(145px,38%) minmax(0,1fr);gap:clamp(16px,3vw,30px);align-items:start}
+.flipbook-cover-wrap{min-width:0}.flipbook-cover-image{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain;border-radius:22px;border:3px solid #fbbf77;box-shadow:0 9px 24px #fb923c2b;background:#fff}.flipbook-cover-placeholder{aspect-ratio:3/4;min-height:220px;width:100%;border-radius:24px;border:3px solid #fbbf77;box-shadow:0 9px 24px #fb923c2b;background:linear-gradient(150deg,#e0f2fe,#fce7f3 55%,#fff1cc);display:flex;flex-direction:column;gap:16px;justify-content:center;align-items:center;color:#30205f;padding:20px}
+.flipbook-feature-content{min-width:0}
+@media(max-width:640px){.flipbook-feature-layout{grid-template-columns: minmax(105px,35%) minmax(0,1fr);gap:12px}.flipbook-cover-placeholder{min-height:170px;border-radius:18px;padding:8px;font-size:12px}.flipbook-feature-content h4{font-size:1.08rem;line-height:1.35}.flipbook-feature-content button{width:100%;justify-content:center}.flipbook-feature-content .text-sm{font-size:.82rem}}
+@media(max-width:370px){.flipbook-feature-layout{grid-template-columns:1fr}.flipbook-cover-wrap{max-width:210px;margin:auto}}
+</style>
+<style>
+/* Teacher introduction: portrait on left, content on right */
+.teacher-about-layout{display:grid;grid-template-columns:minmax(210px,34%) minmax(0,1fr);gap:clamp(18px,3vw,42px);align-items:stretch}
+.teacher-portrait-panel{border-radius:28px;min-height:420px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;background:linear-gradient(145deg,#fff0e2 0%,#ffe9f2 56%,#e8f7ff 100%);border:2px solid #ffd7c3;box-shadow:0 10px 30px rgba(238,125,145,.12);position:relative}
+.teacher-portrait-panel:before{content:"✿";position:absolute;top:16px;left:20px;color:#ff94c5;font-size:36px;opacity:.8}
+.teacher-portrait{width:100%;height:100%;max-height:650px;object-fit:contain;object-position:center bottom;display:block;filter:drop-shadow(0 8px 9px rgba(70,48,70,.12))}
+.teacher-about-content{min-width:0;display:flex;flex-direction:column;gap:20px;justify-content:center}
+.teacher-about-content .relative.bg-orange-100\/50 p{text-align:justify;text-justify:inter-word}
+@media(max-width:700px){.teacher-about-layout{grid-template-columns:1fr;gap:18px}.teacher-portrait-panel{min-height:0;height:330px;max-width:100%;}.teacher-portrait{max-height:330px;width:auto;max-width:100%}.teacher-about-content{gap:16px}}
+@media(min-width:701px) and (max-width:950px){.teacher-about-layout{grid-template-columns:32% minmax(0,1fr)}.teacher-portrait-panel{min-height:380px}}
+</style><style>
+.van6-top-banner{width:100%;overflow:hidden;background:#eaf9ff;line-height:0}.van6-top-banner img{display:block;width:100%;height:auto;object-fit:contain}@media(max-width:640px){.van6-top-banner{overflow-x:auto;scrollbar-width:thin}.van6-top-banner img{width:max(100%,900px);max-width:none}}
+</style><style>
+/* Palette inspired by the supplied new 2048x197 banner */
+:root{--van-pink:#ff65ac;--van-purple:#9865db;--van-sky:#70cfff;--van-cream:#fff1cc;--van-leaf:#bdeDB2;--van-ink:#30205f}
+html{scroll-behavior:smooth}
+body{background:linear-gradient(180deg,#f2fbff 0%,#fff9f5 28%,#fff8fc 67%,#f5fbff 100%)!important;color:#30205f}
+.van6-top-banner{background:#eaf9ff!important}
+.van6-top-banner img{display:block;width:100%;height:auto;object-fit:contain}
+/* Make existing section surfaces coordinate with the banner without changing content or layout */
+.bg-white{background-color:#fff!important}
+.bg-orange-50{background-color:#fff5e7!important}
+.bg-rose-50{background-color:#fff1f7!important}
+.bg-amber-50{background-color:#fff8e5!important}
+.bg-sky-50{background-color:#effaff!important}
+.bg-pink-50{background-color:#fff0f8!important}
+.border-orange-200{border-color:#ffd9a8!important}
+.border-rose-200{border-color:#ffcadc!important}
+.border-pink-200{border-color:#ffcadf!important}
+.text-slate-700{color:#45416a!important}
+.text-slate-800,.text-slate-900{color:#30205f!important}
+/* Top announcement uses colors drawn from the banner */
+body > div:first-child.bg-gradient-to-r{background:linear-gradient(90deg,#ff8c70 0%,#ff65ac 48%,#9865db 100%)!important}
+/* Soft but vivid links, focus indicators and hover behavior */
+a:focus-visible,button:focus-visible{outline:3px solid #70cfff!important;outline-offset:3px}
+button,a{transition:background-color .2s ease,box-shadow .2s ease,transform .2s ease}
+@media(max-width:640px){.van6-top-banner img{width:100%;height:auto;max-width:none}body{overflow-x:hidden}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}button,a{transition:none}}
+</style><style id="footer-pastel-compact-2026">
+/* Chân trang gọn, sáng và đồng bộ với banner Ngữ văn 6 */
+#footer {background:linear-gradient(120deg,#fff0f7 0%,#effaff 52%,#fff6df 100%) !important;color:#493c67 !important;border-top:3px solid #ff9bc8 !important;padding-top:26px !important;padding-bottom:18px !important;}
+#footer > div {max-width:1200px !important;}
+#footer .grid {gap:22px !important;padding-bottom:22px !important;border-bottom:1px solid #edcfe4 !important;}
+#footer .space-y-4 > :not([hidden]) ~ :not([hidden]) {margin-top:10px !important;}
+#footer .space-y-3 > :not([hidden]) ~ :not([hidden]) {margin-top:9px !important;}
+#footer h4,#footer h5,#footer .text-white {color:#42275f !important;}
+#footer h4 {font-size:16px !important;line-height:1.35 !important;}
+#footer h5 {font-size:12px !important;letter-spacing:.04em !important;}
+#footer p,#footer li,#footer .text-slate-300,#footer .text-slate-400,#footer .text-slate-500 {color:#665b79 !important;}
+#footer p,#footer li {font-size:12px !important;line-height:1.55 !important;}
+#footer .bg-orange-500 {background:#ff76ae !important;}
+#footer .text-amber-300 {color:#bd417a !important;}
+#footer a.rounded-xl {background:#fff !important;color:#b14a90 !important;border:1px solid #f7c7df !important;box-shadow:0 2px 6px #d99eb02b;}
+#footer a.rounded-xl:hover {background:#ffe0ee !important;color:#7d3382 !important;}
+#footer .pt-8 {padding-top:16px !important;}
+#footer .w-10.h-10 {width:34px !important;height:34px !important;}
+#footer .w-9.h-9 {width:33px !important;height:33px !important;}
+@media(max-width:767px){#footer {padding-top:22px !important;padding-bottom:18px !important;}#footer .grid{gap:20px !important;}#footer .pt-8{gap:8px !important;text-align:center !important;}#footer h4{font-size:15px !important;}}
+</style>
+<style>
+/* Ảnh đại diện tròn bên trái tên giáo viên; bỏ ảnh chân dung lớn */
+.teacher-about-layout{display:block!important;max-width:1050px;margin-inline:auto}
+.teacher-about-content{width:100%;gap:20px}
+.teacher-identity-card{display:flex!important;align-items:center;gap:18px;padding:18px 24px!important;min-height:116px}
+.teacher-avatar-wrap{width:92px;height:92px;flex:0 0 92px;border-radius:50%;padding:4px;background:linear-gradient(135deg,#ff87b6,#ffd28c,#8ddcff);box-shadow:0 5px 14px rgba(255,101,172,.17);overflow:hidden}
+.teacher-avatar-circle{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center 15%;background:#fff0f6;display:block}
+.teacher-identity-card>div:not(.teacher-avatar-wrap){min-width:0}
+@media(max-width:600px){.teacher-identity-card{gap:12px;padding:14px!important;min-height:90px}.teacher-avatar-wrap{width:68px;height:68px;flex-basis:68px}.teacher-identity-card h3{font-size:1rem;line-height:1.35}.teacher-about-content{gap:14px}}
+</style><style>
+/* Giới thiệu tác giả: một khung chung, ảnh tròn phía trên tên, lời giới thiệu bên phải */
+.teacher-about-layout{display:block!important}
+.teacher-about-content{display:grid!important;grid-template-columns:minmax(210px,28%) minmax(0,1fr);gap:18px 28px;align-items:start;background:linear-gradient(135deg,#fff9f4,#fff1f8 58%,#eefaff);border:1.5px solid #ffd6e6;border-radius:28px;padding:clamp(18px,3vw,32px);box-shadow:0 10px 30px rgba(152,101,219,.07)}
+.teacher-identity-card{grid-column:1;grid-row:1 / span 2;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;gap:14px!important;text-align:center!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:8px 4px!important}
+.teacher-avatar-wrap{margin:0 auto!important;flex:none!important}
+.teacher-avatar-circle{width:132px!important;height:132px!important;border-radius:50%!important;object-fit:cover!important;object-position:center 22%!important}
+.teacher-identity-card .space-y-1{text-align:center!important}
+.teacher-identity-card .flex.items-center{justify-content:center!important;flex-wrap:wrap!important}
+.teacher-quote-card{grid-column:2;grid-row:1;background:rgba(255,255,255,.78)!important;border:1px solid #ffdfc7!important;border-radius:22px!important;padding:clamp(16px,2.5vw,28px)!important;text-align:justify!important;line-height:1.8!important;min-width:0}
+.teacher-actions{grid-column:2;grid-row:2;display:flex!important;flex-wrap:wrap!important;gap:12px!important;padding-top:0!important}
+@media(max-width:720px){.teacher-about-content{grid-template-columns:minmax(0,1fr);gap:16px;padding:18px}.teacher-identity-card{grid-column:1;grid-row:1}.teacher-quote-card{grid-column:1;grid-row:2}.teacher-actions{grid-column:1;grid-row:3;justify-content:center}.teacher-avatar-circle{width:112px!important;height:112px!important}.teacher-actions a,.teacher-actions button{max-width:100%}}
+</style>
+<!-- Hiệu ứng tương tác ảnh: nhẹ, không thay đổi bố cục -->
+<style id="image-hover-effects">
+@media (hover: hover) and (pointer: fine) {
+  img.flipbook-cover-image,
+  img.infographic-cover-image,
+  img.teacher-avatar-circle,
+  img.aspect-square,
+  img.ig-slide:not(.hidden) {
+    transition: transform .35s cubic-bezier(.2,.8,.2,1), filter .35s ease, box-shadow .35s ease;
+    transform-origin: center center;
+    will-change: transform;
+  }
+  img.flipbook-cover-image:hover,
+  img.infographic-cover-image:hover,
+  img.aspect-square:hover {
+    transform: translateY(-5px) scale(1.035);
+    filter: brightness(1.045) saturate(1.07);
+    box-shadow: 0 15px 30px rgba(152,101,219,.20);
+  }
+  img.teacher-avatar-circle:hover {
+    transform: scale(1.075) rotate(1.5deg);
+    filter: brightness(1.06);
+    box-shadow: 0 8px 22px rgba(255,101,172,.25);
+  }
+  img.ig-slide:not(.hidden):hover {
+    transform: scale(1.012);
+    filter: brightness(1.035);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  img.flipbook-cover-image, img.infographic-cover-image,
+  img.teacher-avatar-circle, img.aspect-square, img.ig-slide {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+</style>
+<style>/* Giữ nguyên toàn bộ ảnh tròn đã cung cấp */ .teacher-avatar-circle{object-fit:contain!important;object-position:center!important;background:transparent!important;transform:none;} .teacher-avatar-wrap{padding:2px!important;border:2px solid #ff78ac!important;background:#fff!important;overflow:hidden!important;border-radius:50%!important;box-sizing:border-box!important;} .teacher-avatar-wrap:hover .teacher-avatar-circle{transform:scale(1.025)!important;}</style>
+<style id="infographic-static-images">
+/* Ảnh thuộc cụm Infographic Văn 6: không hover, không phóng to, không đổi sáng, không chuyển động. */
+img.infographic-cover-image, img.infographic-cover-image:hover,
+#infographicModal img.ig-slide, #infographicModal img.ig-slide:hover {
+  transform:none!important; filter:none!important; transition:none!important; animation:none!important; will-change:auto!important;
+}
+</style>
+<style>/* Ảnh cô giáo mới: avatar tròn, viền hồng mỏng */
+.teacher-avatar-wrap{width:146px!important;height:146px!important;flex:0 0 146px!important;padding:3px!important;border:2px solid #ff78ac!important;border-radius:50%!important;overflow:hidden!important;background:#fff!important;box-sizing:border-box!important}
+.teacher-avatar-wrap .teacher-avatar-circle{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center center!important;border-radius:50%!important}
+@media(max-width:720px){.teacher-avatar-wrap{width:120px!important;height:120px!important;flex-basis:120px!important}}
+</style><style>
+/* SGK card: thumbnail inside the existing card, without increasing its dimensions */
+.sgk-preview-row{display:flex;align-items:flex-start;gap:12px;min-height:132px}
+.sgk-preview-image{width:112px;height:112px;flex:0 0 112px;object-fit:cover;border-radius:20px;border:2px solid #ffd4a4;display:block}
+.sgk-preview-copy{min-width:0;flex:1;overflow-wrap:break-word}
+.sgk-preview-copy h4{font-size:15px;line-height:1.3}
+.sgk-preview-copy p{font-size:11px;line-height:1.45}
+@media(max-width:390px){.sgk-preview-row{gap:9px}.sgk-preview-image{width:94px;height:94px;flex-basis:94px}.sgk-preview-copy h4{font-size:13px}}
+</style>
+<style id="six-resource-image-layout">
+.resource-preview-row{display:flex;align-items:flex-start;gap:12px;min-width:0}
+.resource-preview-image{width:112px;height:112px;flex:0 0 112px;object-fit:cover;border-radius:18px;border:2px solid #ffd4a8;display:block;transition:none!important;transform:none!important}
+.resource-preview-copy{flex:1;min-width:0;overflow-wrap:break-word}
+.resource-preview-copy h4{font-size:15px;line-height:1.35}
+.resource-preview-copy p{font-size:11px;line-height:1.45}
+@media(max-width:390px){.resource-preview-row{gap:9px}.resource-preview-image{width:94px;height:94px;flex-basis:94px}.resource-preview-copy h4{font-size:13px}}
+</style><style id="resource-six-compact-fix">
+/* Sáu thẻ học liệu: tự co theo nội dung, không kéo dài khoảng trắng */
+#resourceGrid .resource-card { height:auto !important; min-height:0 !important; justify-content:flex-start !important; }
+#resourceGrid .resource-card > .border-t { margin-top:12px !important; padding-top:12px !important; }
+#resourceGrid .resource-card .sgk-preview-row,
+#resourceGrid .resource-card .resource-preview-row { margin-bottom:0 !important; }
+</style>
+<style id="resource-six-aligned-compact">
+/* Đồng chiều cao theo từng hàng, chân thẻ và nút luôn thẳng hàng. */
+#resourceGrid {align-items:stretch !important;grid-auto-rows:auto !important;}
+#resourceGrid .resource-card {height:100% !important;min-height:0 !important;display:flex !important;flex-direction:column !important;justify-content:flex-start !important;}
+#resourceGrid .resource-card > .border-t {margin-top:auto !important;padding-top:12px !important;}
+#resourceGrid .sgk-preview-row {min-height:0 !important;}
+#resourceGrid .resource-card > div:first-child {margin-bottom:12px;}
+</style><style>
+/* Sáu nút hành động nằm bên phải hình, không tạo hàng trống phía dưới */
+#resourceGrid .resource-card {height:100% !important; min-height:0 !important; justify-content:flex-start !important;}
+#resourceGrid .resource-card > div:first-child {margin-bottom:0 !important;}
+#resourceGrid .resource-card .sgk-preview-row,
+#resourceGrid .resource-card .resource-preview-row {position:relative !important; min-height:138px !important; margin-bottom:0 !important; padding-bottom:0 !important;}
+#resourceGrid .resource-card .sgk-preview-copy,
+#resourceGrid .resource-card .resource-preview-copy {padding-bottom:39px !important;}
+#resourceGrid .resource-card .resource-inline-actions {position:absolute !important; right:0 !important; bottom:0 !important; margin:0 !important; padding:0 !important; border:0 !important; display:flex !important; justify-content:flex-end !important; align-items:center !important; z-index:1;}
+#resourceGrid .resource-card .resource-inline-actions a,
+#resourceGrid .resource-card .resource-inline-actions button {white-space:nowrap;}
+@media(max-width:390px){#resourceGrid .resource-card .sgk-preview-row,#resourceGrid .resource-card .resource-preview-row{min-height:140px !important;}}
+</style>
+<style id="resource-actions-directly-after-text">
+/* Nút theo ngay sau đoạn mô tả, không ghim ở đáy ảnh hoặc đáy thẻ. */
+#resourceGrid .resource-card .resource-preview-row,
+#resourceGrid .resource-card .sgk-preview-row { min-height:0 !important; margin:0 !important; padding:0 !important; align-items:flex-start !important; }
+#resourceGrid .resource-card .resource-preview-copy,
+#resourceGrid .resource-card .sgk-preview-copy {padding:0 !important; display:flex !important; flex-direction:column !important; align-items:stretch !important;}
+#resourceGrid .resource-card .resource-inline-actions {position:static !important; inset:auto !important; margin:8px 0 0 !important; padding:0 !important; display:flex !important; justify-content:flex-end !important; align-self:stretch !important; width:100% !important;}
+#resourceGrid .resource-card {padding-bottom:14px !important;}
+#resourceGrid .resource-card > div:first-child {margin-bottom:0 !important;}
+</style>
+<script id="move-resource-actions-under-description">
+document.addEventListener('DOMContentLoaded',function(){
+ document.querySelectorAll('#resourceGrid .resource-card').forEach(function(card){
+  var copy=card.querySelector('.resource-preview-copy, .sgk-preview-copy');
+  var actions=card.querySelector('.resource-inline-actions');
+  if(copy && actions && actions.parentElement!==copy) copy.appendChild(actions);
+ });
+});
+</script>
+<style id="six-resource-buttons-uniform-final">
+/* Đồng bộ nút: góc phải dưới của phần chữ, cùng kích thước và cùng cao độ. */
+#resourceGrid .resource-card .resource-preview-row,
+#resourceGrid .resource-card .sgk-preview-row { align-items:stretch !important; min-height:140px !important; }
+#resourceGrid .resource-card .resource-preview-copy,
+#resourceGrid .resource-card .sgk-preview-copy { min-height:140px !important; height:140px !important; display:flex !important; flex-direction:column !important; }
+#resourceGrid .resource-card .resource-inline-actions { margin-top:auto !important; padding-top:6px !important; width:100% !important; justify-content:flex-end !important; }
+#resourceGrid .resource-card .resource-inline-actions > button,
+#resourceGrid .resource-card .resource-inline-actions > a,
+#resourceGrid .resource-card .resource-inline-actions > span { box-sizing:border-box !important; width:172px !important; min-width:172px !important; height:36px !important; min-height:36px !important; display:inline-flex !important; align-items:center !important; justify-content:center !important; gap:6px !important; padding:0 8px !important; font-size:12px !important; white-space:nowrap !important; border-radius:10px !important; }
+@media(max-width:600px){#resourceGrid .resource-card .resource-preview-copy,#resourceGrid .resource-card .sgk-preview-copy {height:auto !important;min-height:140px !important;} #resourceGrid .resource-card .resource-inline-actions > button,#resourceGrid .resource-card .resource-inline-actions > a,#resourceGrid .resource-card .resource-inline-actions > span{width:145px !important;min-width:145px !important;font-size:11px !important;}}
+</style><style id="van6-unified-image-hover">
+/* Đồng nhất hiệu ứng trên các ảnh nội dung; không áp dụng banner và bộ Infographic. */
+@media (hover:hover) and (pointer:fine) {
+ img.van6-unified-hover {transition:transform .32s cubic-bezier(.2,.8,.2,1),filter .32s ease,box-shadow .32s ease!important;transform-origin:center center;}
+ img.van6-unified-hover:hover {transform:translateY(-3px) scale(1.035)!important;filter:brightness(1.035) saturate(1.06)!important;box-shadow:0 12px 24px rgba(152,101,219,.20)!important;}
+ img.infographic-cover-image:hover,img.ig-slide:hover {transform:none!important;filter:none!important;}
+}
+@media (prefers-reduced-motion:reduce){img.van6-unified-hover{transition:none!important;transform:none!important;}}
+</style><style id="resource-six-raised-buttons-2026">
+/* Sáu thẻ: nút ngang hàng, sát đáy ảnh, không có khoảng trắng dư. */
+#resourceGrid .resource-card{padding-bottom:12px!important;}
+#resourceGrid .resource-card .resource-preview-row,#resourceGrid .resource-card .sgk-preview-row{min-height:112px!important;align-items:stretch!important;}
+#resourceGrid .resource-card .resource-preview-copy,#resourceGrid .resource-card .sgk-preview-copy{height:112px!important;min-height:112px!important;}
+#resourceGrid .resource-card .resource-inline-actions{margin-top:auto!important;padding-top:3px!important;}
+#resourceGrid .resource-card .resource-inline-actions>a,#resourceGrid .resource-card .resource-inline-actions>button,#resourceGrid .resource-card .resource-inline-actions>span{height:34px!important;min-height:34px!important;}
+@media(max-width:767px){#resourceGrid .resource-card .resource-preview-row,#resourceGrid .resource-card .sgk-preview-row{min-height:112px!important;}#resourceGrid .resource-card .resource-preview-copy,#resourceGrid .resource-card .sgk-preview-copy{height:auto!important;min-height:112px!important;} }
+</style>
+<style id="infographic-outer-cover-hover-2026">
+/* Chỉ ảnh bìa ngoài SẢN PHẨM 02; không ảnh bên trong bộ infographic. */
+@media (hover:hover) and (pointer:fine){
+ img.flipbook-cover-image.infographic-cover-image{transition:transform .32s cubic-bezier(.2,.8,.2,1),filter .32s ease,box-shadow .32s ease!important;transform-origin:center center;will-change:transform!important;}
+ img.flipbook-cover-image.infographic-cover-image:hover{transform:translateY(-3px) scale(1.035)!important;filter:brightness(1.035) saturate(1.06)!important;box-shadow:0 12px 24px rgba(152,101,219,.20)!important;}
+}
+@media (prefers-reduced-motion:reduce){img.flipbook-cover-image.infographic-cover-image{transition:none!important;transform:none!important;filter:none!important;}}
+</style>
+<style id="drive-resource-click-style">#resourceGrid .resource-card[data-drive-url]{cursor:pointer}#resourceGrid .resource-card[data-drive-url]:focus-visible{outline:3px solid #70cfff;outline-offset:3px}</style><style id="van6-library-design">
+#van6Library{position:fixed;inset:0;z-index:999999;background:linear-gradient(135deg,#fff9f5,#fff1f8 55%,#effaff);overflow:auto;display:none;color:#30205f;font-family:Quicksand,Arial,sans-serif}#van6Library.is-open{display:block}body.van6-library-open{overflow:hidden}#van6Library *{box-sizing:border-box}.v6l-shell{max-width:1180px;margin:auto;padding:22px 20px 70px}.v6l-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.v6l-home,.v6l-link,.v6l-chip,.v6l-detail-back{border:1.5px solid #ffc6e2;border-radius:14px;background:white;padding:10px 17px;color:#683e95;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}.v6l-home:hover,.v6l-chip:hover,.v6l-detail-back:hover{background:#fff0f8}.v6l-hero{background:linear-gradient(110deg,#ffe7f3,#eaf8ff 65%,#fff1cc);border:2px solid #ffb8d7;border-radius:30px;margin:20px 0;padding:28px;position:relative;overflow:hidden}.v6l-hero h2{font-size:clamp(25px,4vw,40px);font-weight:800;color:#703caa;margin:4px 0 8px}.v6l-hero p{max-width:680px;line-height:1.65;font-weight:600}.v6l-hero:after{content:'📚 ✨ 🌸';position:absolute;right:30px;bottom:10px;font-size:45px;opacity:.75;pointer-events:none}.v6l-search{width:100%;padding:14px 17px;border:2px solid #ebc7e5;border-radius:16px;background:#fff;outline:none;font:600 15px Quicksand,Arial,sans-serif;color:#30205f}.v6l-search:focus{border-color:#9865db}.v6l-chips{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0 22px}.v6l-chip{font-size:13px;padding:9px 13px}.v6l-chip.active{background:#9865db;color:white;border-color:#9865db}.v6l-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.v6l-card{background:white;border:2px solid #f5d7e8;border-radius:24px;padding:22px;box-shadow:0 8px 24px #9865db12;transition:transform .2s,box-shadow .2s}.v6l-card:hover{transform:translateY(-4px);box-shadow:0 12px 26px #9865db24}.v6l-icon{width:66px;height:66px;display:flex;align-items:center;justify-content:center;border-radius:19px;font-size:29px;color:#65429b;margin-bottom:14px}.v6l-card h3{font-size:19px;font-weight:800;margin-bottom:8px}.v6l-card p{font-size:14px;line-height:1.6;min-height:48px}.v6l-open{margin-top:16px;display:inline-flex;gap:8px;align-items:center;border:0;background:linear-gradient(90deg,#ff65ac,#9865db);color:white;border-radius:13px;padding:11px 15px;font-weight:800;cursor:pointer}.v6l-detail{display:none;background:white;border:2px solid #f4d0e6;border-radius:25px;padding:clamp(20px,4vw,38px);box-shadow:0 12px 35px #9865db16}.v6l-detail.is-active{display:block}.v6l-detail-header{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin:24px 0}.v6l-detail h3{font-size:clamp(22px,3vw,32px);font-weight:800}.v6l-notice{border-radius:18px;background:#f4faff;border:1px solid #c9e9ff;padding:17px 20px;line-height:1.7;margin:18px 0}.v6l-link{background:linear-gradient(90deg,#ff65ac,#9865db);color:white;border:0;padding:14px 22px;font-size:15px}.v6l-link:hover{filter:brightness(1.07)}.v6l-note{font-size:13px;color:#685b80;margin-top:18px;line-height:1.6}.v6l-empty{display:none;text-align:center;padding:35px;font-weight:700;color:#69517d}.v6l-footer{text-align:center;font-size:13px;color:#705f88;padding-top:28px}@media(max-width:800px){.v6l-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.v6l-shell{padding:14px 12px 40px}.v6l-grid{grid-template-columns:1fr}.v6l-hero{padding:20px}.v6l-hero:after{font-size:26px;opacity:.4}.v6l-card p{min-height:0}.v6l-detail-header{gap:12px}}@media(prefers-reduced-motion:reduce){.v6l-card{transition:none}}
+</style><style id="v6l-live-sync-style">
+.v6l-live-tools{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:14px 0}.v6l-live-search{flex:1;min-width:180px;border:2px solid #f5d6eb;border-radius:13px;padding:10px 13px;background:white;color:#30205f}.v6l-sync-btn{border:0;background:#9865db;color:white;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer}.v6l-sync-state{font-size:13px;color:#6a5981;margin:8px 0}.v6l-file-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:13px;margin:12px 0}.v6l-file{background:#fff;border:1.5px solid #f6d3e9;border-radius:18px;padding:15px;box-shadow:0 5px 15px #9865db12;min-width:0}.v6l-file-title{font-weight:800;color:#30205f;overflow-wrap:anywhere;line-height:1.5;margin:9px 0}.v6l-file-meta{color:#75658d;font-size:12px}.v6l-file-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}.v6l-file-actions a{border-radius:9px;padding:8px 10px;background:#fff1f8;border:1px solid #ffc6e1;color:#7b3899;font-weight:700;font-size:12px;text-decoration:none}.v6l-file-actions a:first-child{background:#9865db;color:white;border-color:#9865db}.v6l-setup-hint{background:#fff9e9;border:1px solid #ffe2a1;padding:12px;border-radius:12px;color:#6d517a;font-size:13px;margin:12px 0}.v6l-file-icon{font-size:25px;color:#9865db}.v6l-preview{position:fixed;inset:0;z-index:999999;background:#1c1333c9;display:none;align-items:center;justify-content:center;padding:15px}.v6l-preview.is-open{display:flex}.v6l-preview-panel{width:min(100%,1050px);height:min(90vh,850px);background:white;border-radius:18px;display:flex;flex-direction:column;overflow:hidden}.v6l-preview-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;color:#30205f}.v6l-preview-top strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v6l-preview iframe{width:100%;flex:1;border:0}.v6l-preview-close{background:#ff65ac;color:white;border:0;border-radius:9px;padding:8px 13px;cursor:pointer}
+</style>
+<style id="van6-soft-3d-all-cards-2026">
+/* 3D pastel mềm: chỉ trang trí bề mặt, không thay đổi bố cục hay hành vi. */
+:root { --card-3d-shadow: 0 5px 0 rgba(180,137,183,.13), 0 14px 25px rgba(105,75,137,.12), inset 0 1px 0 rgba(255,255,255,.96); }
+#resourceGrid .resource-card,
+#featured .group.rounded-3xl,
+.benefit-card,
+.teacher-about-content,
+.teacher-quote-card,
+#van6Library .rounded-2xl,
+#van6Library .rounded-3xl,
+#van6Library article,
+#van6Library .library-card {
+  box-shadow:var(--card-3d-shadow)!important;
+  border-color:rgba(231,180,214,.65)!important;
+  transition: transform .28s cubic-bezier(.2,.75,.25,1),box-shadow .28s ease,border-color .28s ease!important;
+  transform:translateZ(0);
+}
+@media (hover:hover) and (pointer:fine) {
+  #resourceGrid .resource-card:hover,
+  #featured .group.rounded-3xl:hover,
+  .benefit-card:hover,
+  #van6Library .library-card:hover,
+  #van6Library article:hover {
+    transform:translateY(-5px)!important;
+    box-shadow:0 9px 0 rgba(180,137,183,.12),0 22px 35px rgba(105,75,137,.19),inset 0 1px 0 #fff!important;
+    border-color:#f6a6d1!important;
+  }
+  #resourceGrid .resource-card:active,
+  #van6Library .library-card:active {transform:translateY(-1px)!important;}
+}
+/* Nút 3D nhẹ, giữ nguyên màu và kích thước nút. */
+#resourceGrid .resource-inline-actions a,
+#resourceGrid .resource-inline-actions button,
+#van6Library button,
+#van6Library a.rounded-xl {
+  box-shadow:0 3px 0 rgba(113,80,135,.13),0 5px 10px rgba(113,80,135,.08);
+}
+@media(hover:hover) and (pointer:fine) {
+ #resourceGrid .resource-inline-actions a:hover,
+ #resourceGrid .resource-inline-actions button:hover,
+ #van6Library button:hover {filter:brightness(1.025);}
+}
+@media(max-width:767px){
+ #resourceGrid .resource-card,#featured .group.rounded-3xl,.benefit-card,.teacher-about-content,
+ #van6Library .library-card {box-shadow:0 3px 0 rgba(180,137,183,.10),0 9px 18px rgba(105,75,137,.11)!important;}
+}
+@media(prefers-reduced-motion:reduce){
+ #resourceGrid .resource-card,#featured .group.rounded-3xl,.benefit-card,.teacher-about-content,
+ #van6Library .library-card {transition:none!important;transform:none!important;}
+}
+</style>
+<style id="van6-book-cover-always-raised-3d">
+#featured .flipbook-cover-wrap{position:relative;isolation:isolate;padding:8px 10px 18px;border-radius:26px;background:linear-gradient(145deg,#fffefa,#fff3e8 60%,#fff0f8);border:1px solid rgba(255,194,125,.7);box-shadow:0 7px 0 rgba(235,169,112,.45),0 16px 23px rgba(130,87,109,.16),inset 0 2px 2px #fff}
+#featured .flipbook-cover-wrap:before{content:"";position:absolute;left:12%;right:12%;bottom:8px;height:15px;border-radius:50%;background:rgba(104,65,95,.2);filter:blur(9px);z-index:0;pointer-events:none}
+#featured .flipbook-cover-wrap>img.flipbook-cover-image{position:relative;z-index:1;transform:translateY(-3px)!important;box-shadow:0 5px 0 rgba(191,119,65,.33),0 13px 20px rgba(94,56,75,.23)!important;transition:transform .32s ease,box-shadow .32s ease!important}
+@media(hover:hover) and (pointer:fine){#featured .flipbook-cover-wrap:hover>img.flipbook-cover-image{transform:translateY(-7px) scale(1.018)!important;box-shadow:0 8px 0 rgba(191,119,65,.3),0 21px 29px rgba(94,56,75,.27)!important}}
+@media(max-width:640px){#featured .flipbook-cover-wrap{padding:6px 7px 13px;border-radius:20px}}
+@media(prefers-reduced-motion:reduce){#featured .flipbook-cover-wrap>img.flipbook-cover-image{transition:none!important}}
+</style>
+</head>
+<body class="text-slate-700 antialiased selection:bg-orange-200 selection:text-orange-900"><div class="bg-gradient-to-r from-orange-500 via-rose-500 to-amber-500 text-white text-xs sm:text-sm py-2 px-4 shadow-sm">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center space-x-2 font-medium">
+<span class="inline-block animate-bounce">💐</span>
+<span>Công trình chuyển đổi số chào mừng kỷ niệm 44 năm Ngày Nhà giáo Việt Nam (20/11)</span>
+</div>
+<div class="hidden md:flex items-center space-x-4 text-xs font-semibold bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+<span><i class="fa-solid fa-school text-yellow-200 mr-1"></i> Trường THCS Khánh Hội</span>
+<span>•</span>
+<span><i class="fa-solid fa-award text-yellow-200 mr-1"></i> Dự thi Đổi mới Sáng tạo 2026</span>
+</div>
+</div>
+</div>
+<!-- Sticky Navigation Bar -->
+<div aria-label="Hệ thống học liệu số – Hưởng ứng ngày Nhà giáo Việt Nam 20/11/2026 – Nguyễn Thị Bích Phương" class="van6-top-banner" role="img"><img alt="Banner Hệ thống học liệu số hưởng ứng ngày Nhà giáo Việt Nam 20/11/2026" decoding="async" fetchpriority="high" src="assets/images/4f695eb4d9bfabe5.webp"/></div>
+<!-- Top Ribbon Chào Mừng 20/11 -->
+<header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-orange-100 transition-all duration-300 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center space-x-3 group" href="#">
+<div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-400 to-rose-400 flex items-center justify-center text-white text-2xl shadow-md group-hover:scale-105 transition-transform duration-200">
+                    📖
+                </div>
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-orange-600 block">Sản Phẩm Dự Thi Số Hóa</span>
+<h1 class="text-lg sm:text-xl font-bold text-slate-800 leading-tight heading-font">
+                        Hành trang Ngữ Văn <span class="text-rose-500">✨</span>
+</h1>
+</div>
+</a>
+<!-- Desktop Menu -->
+<nav class="hidden lg:flex items-center space-x-1 font-semibold text-sm">
+<a class="px-3.5 py-2 rounded-xl text-slate-600 hover:text-orange-600 hover:bg-orange-50 transition" href="#about">Về Tác Giả &amp; Ý Tưởng</a>
+<a class="px-3.5 py-2 rounded-xl text-slate-600 hover:text-orange-600 hover:bg-orange-50 transition" href="#featured">
+<span class="inline-block mr-1">🌟</span>2 Sản Phẩm Trọng Tâm
+                </a>
+<a class="px-3.5 py-2 rounded-xl text-slate-600 hover:text-orange-600 hover:bg-orange-50 transition" href="#hub">Kho Học Liệu Số</a>
+<a class="px-3.5 py-2 rounded-xl text-slate-600 hover:text-orange-600 hover:bg-orange-50 transition" href="#footer">Liên Hệ</a>
+</nav>
+<!-- Action Button -->
+<div class="hidden sm:flex items-center space-x-3">
+<a class="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold text-sm px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5" href="#hub">
+<i class="fa-solid fa-graduation-cap"></i>
+<span>Vào Thư Viện</span>
+</a>
+</div>
+<!-- Mobile Hamburger Button -->
+<button aria-label="Menu" class="lg:hidden p-2 rounded-xl text-slate-600 hover:bg-orange-50 focus:outline-none" id="mobileMenuBtn">
+<i class="fa-solid fa-bars text-xl"></i>
+</button>
+</div>
+<!-- Mobile Drawer -->
+<div class="hidden lg:hidden bg-white border-b border-orange-100 px-4 pt-2 pb-6 space-y-2 text-sm font-semibold shadow-xl" id="mobileMenu">
+<a class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-orange-50" href="#about">Về Tác Giả &amp; Ý Tưởng</a>
+<a class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-orange-50" href="#featured">2 Sản Phẩm Trọng Tâm</a>
+<a class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-orange-50" href="#hub">Kho Học Liệu Số (SGK, KHBD, PPT)</a>
+<a class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-orange-50" href="#footer">Thông Tin Liên Hệ</a>
+</div>
+</header>
+<!-- HERO SECTION: Thông tin giáo viên & Ý tưởng 20/11 -->
+<section class="relative overflow-hidden pt-10 pb-16 lg:py-20 bg-gradient-to-b from-orange-50/70 via-white to-orange-50/40" id="about">
+<!-- Cute decorative floating elements -->
+<div class="absolute top-10 left-8 text-3xl opacity-40 animate-float pointer-events-none">🌸</div>
+<div class="absolute top-32 right-12 text-4xl opacity-50 animate-bounce pointer-events-none" style="animation-duration: 4s;">✨</div>
+<div class="absolute bottom-10 left-1/4 text-2xl opacity-40 animate-spin-slow pointer-events-none">🌻</div>
+<div class="absolute bottom-20 right-10 text-3xl opacity-30 animate-float pointer-events-none" style="animation-delay: 1.5s;">📚</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="teacher-about-layout"><div class="teacher-about-content"><div class="teacher-identity-card"><div class="teacher-avatar-wrap"><img alt="Ảnh đại diện cô Nguyễn Thị Bích Phương" class="van6-unified-hover teacher-avatar-circle" src="assets/images/18ab6e2acd5cb59d.webp"/></div>
+<div class="space-y-1">
+<div class="flex items-center justify-center sm:justify-start gap-2">
+<h3 class="text-lg font-bold text-slate-800">Cô Nguyễn Thị Bích Phương</h3>
+<span class="bg-orange-100 text-orange-700 text-[11px] font-bold px-2 py-0.5 rounded-md">Tác giả</span>
+</div>
+<p class="text-sm font-semibold text-slate-500">
+<i class="fa-solid fa-compass text-rose-400 mr-1"></i> Tổ: Ngữ Văn, Lịch sử - Địa lí
+                            </p>
+<p class="text-xs text-slate-500 font-medium">
+<i class="fa-solid fa-landmark text-amber-500 mr-1"></i> Trường THCS Khánh Hội
+                            </p>
+</div>
+</div><div class="teacher-quote-card">
+<i class="fa-solid fa-quote-left text-2xl text-orange-300 block"></i>
+<p class="italic text-slate-600">
+                            "Bước chân từ Tiểu học lên cấp THCS, các em học sinh lớp 6 không khỏi bỡ ngỡ trước dung lượng kiến thức đồ sộ và các yêu cầu phát triển năng lực của chương trình GDPT 2018. Môn Văn không còn là học vẹt, nhớ từng ý đơn thuần mà đòi hỏi sự cảm thụ, tư duy sơ đồ và năng lực liên hệ thực tế."
+                        </p>
+<p class="font-medium text-slate-700">
+                            Nhân dịp <strong class="text-rose-600">Kỷ niệm ngày Nhà giáo Việt Nam 20/11</strong>, tôi ấp ủ và số hóa toàn bộ hệ thống tri thức này thành một <em>"Kho báu di động"</em>. Học sinh có thể lật giở từng trang ghi nhớ, khám phá tranh trực quan (Infographic), tải đề bài, giáo án và chơi trò chơi văn học mọi lúc, mọi nơi hoàn toàn miễn phí.
+                        </p>
+</div><div class="teacher-actions">
+<a class="px-6 py-3 rounded-2xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm shadow-cute active:shadow-cute-press active:translate-y-1 transition duration-150 inline-flex items-center space-x-2" href="#featured">
+<span>🚀 Khám phá 2 Sản Phẩm Dự Thi</span>
+</a>
+<a class="px-6 py-3 rounded-2xl bg-white hover:bg-orange-50 text-orange-700 font-bold text-sm border-2 border-orange-200 transition inline-flex items-center space-x-2" href="#hub">
+<i class="fa-solid fa-folder-open text-orange-500"></i>
+<span>Xem Kho Giáo Án &amp; Tài Liệu</span>
+</a>
+</div></div></div>
+</div>
+</section>
+<!-- SECTION: KHỐI GIỚI THIỆU & MỤC TIÊU SỐ HÓA -->
+<section class="py-9 sm:py-11 bg-gradient-to-b from-orange-50/50 to-amber-50/30" id="featured">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto space-y-2 mb-7 sm:mb-9">
+<div class="inline-flex items-center space-x-2 bg-amber-100 text-amber-800 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider">
+<span>🏆 Trọng tâm hồ sơ dự thi</span>
+</div>
+<h3 class="text-2xl sm:text-3xl font-bold text-slate-800" style="font-family: Quicksand, sans-serif; letter-spacing:-0.035em;">
+                    Hai Công Trình Sáng Tạo Nổi Bật
+                </h3>
+<p class="text-slate-600 text-sm sm:text-base">
+                    Được dày công biên soạn, thẩm định và số hóa trực quan bởi cô giáo Nguyễn Thị Bích Phương
+                </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+<!-- Sản Phẩm 1: Sổ ghi nhớ 63 trang, bố cục ảnh trái - nội dung phải -->
+<div class="bg-white rounded-3xl p-5 sm:p-7 border-2 border-orange-200 shadow-soft-warm hover:border-orange-400 transition-all duration-300 relative overflow-hidden group">
+<div class="flex flex-wrap items-center justify-between gap-2 mb-5"><span class="px-3 py-1 bg-orange-500 text-white text-xs font-black rounded-lg">SẢN PHẨM 01</span><button aria-controls="flipbookExplainDialog" aria-haspopup="dialog" aria-label="Xem giải thích Flipbook Tương Tác" class="text-xs font-bold text-orange-600 hover:text-pink-600 underline decoration-dotted underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-pink-500 rounded" id="flipbookExplainOpen" type="button">Flipbook Tương Tác <span aria-hidden="true">ⓘ</span></button></div>
+<div class="flipbook-feature-layout">
+<div class="flipbook-cover-wrap">
+<img alt="Bìa Sổ ghi nhớ Văn 6 – Tập 1, Nguyễn Thị Bích Phương" class="van6-unified-hover flipbook-cover-image" decoding="async" loading="lazy" src="assets/images/1cc03f44fc131705.webp"/>
+</div>
+<div class="flipbook-feature-content">
+<h4 class="text-xl sm:text-2xl font-bold text-slate-800 heading-font">Sổ Ghi Nhớ Văn 6</h4>
+<p class="text-xs text-slate-500 font-semibold mt-1">Sản phẩm số hóa kiến thức văn 6</p>
+<p class="text-slate-600 text-sm leading-relaxed mt-4" style="text-align: justify; text-justify: inter-word; hyphens: none;">Sổ tay tổng hợp các bài học trong năm học: từ tóm tắt cốt truyện, sơ đồ nhân vật, bài học bằng các hình ảnh trực quan</p>
+<div class="bg-orange-50/70 rounded-2xl p-4 border border-orange-200/80 space-y-2 text-xs font-semibold text-slate-700 mt-4">
+<div class="flex items-start gap-2"><i class="fa-solid fa-check-double text-orange-600 mt-0.5"></i><span>Đọc trực tiếp trên website</span></div>
+<div class="flex items-start gap-2"><i class="fa-solid fa-check-double text-orange-600 mt-0.5"></i><span>Hệ thống kiến thức khoa học</span></div>
+<div class="flex items-start gap-2"><i class="fa-solid fa-check-double text-orange-600 mt-0.5"></i><span>Học và ôn tập dễ dàng</span></div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-3 mt-5 pt-4 border-t border-orange-100"><span class="text-xs font-bold text-slate-500">Dung lượng: 63 trang</span><button class="px-5 py-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm shadow-md transition flex items-center gap-2" onclick="openFlipbookModal()"><i class="fa-solid fa-book-open-reader"></i>Mở Sách Lật Tương Tác</button></div>
+</div>
+</div>
+</div>
+<!-- Sản Phẩm 2: Bìa Infographic, ảnh trái - nội dung phải -->
+<div class="bg-white rounded-3xl p-5 sm:p-7 border-2 border-rose-200 shadow-soft-warm hover:border-rose-400 transition-all duration-300 relative overflow-hidden group">
+<div class="flex flex-wrap items-center justify-between gap-2 mb-5">
+<span class="px-3 py-1 bg-rose-500 text-white text-xs font-black rounded-lg">SẢN PHẨM 02</span>
+<button aria-controls="infographicExplainDialog" aria-haspopup="dialog" aria-label="Xem giải thích Trực quan hóa 2D" class="text-xs font-bold text-rose-600 hover:text-pink-700 underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-pink-500 rounded" id="infographicExplainOpen" type="button">Trực quan hóa 2D <span aria-hidden="true">ⓘ</span></button>
+</div>
+<div class="flipbook-feature-layout">
+<div class="flipbook-cover-wrap">
+<img alt="Bìa sách Infographic Văn 6 – Nguyễn Thị Bích Phương" class="flipbook-cover-image infographic-cover-image" decoding="async" height="1200" loading="lazy" src="assets/images/a35a2237445e3e46.webp" width="850"/>
+</div>
+<div class="flipbook-feature-content">
+<h4 class="text-xl sm:text-2xl font-bold text-slate-800 heading-font">Bộ Infographic Văn 6</h4>
+<p class="text-xs text-slate-500 font-semibold mt-1">Hệ thống hóa kiến thức theo chủ đề</p>
+<p class="text-slate-600 text-sm leading-relaxed mt-4" style="text-align: justify; text-justify: inter-word; hyphens: none;">Biến những trang văn dài thành các bức tranh infographic màu sắc hài hòa, theo chủ đề tạo hứng thú cho học sinh.</p>
+<div class="bg-rose-50/70 rounded-2xl p-4 border border-rose-200/80 space-y-2 text-xs font-semibold text-slate-700 mt-4">
+<div class="flex items-start gap-2"><i class="fa-solid fa-check-double text-rose-600 mt-0.5"></i><span>Phân chia 5 chủ điểm trong học kì 1.</span></div>
+<div class="flex items-start gap-2"><i class="fa-solid fa-check-double text-rose-600 mt-0.5"></i><span>Độ phân giải siêu cao.</span></div>
+<div class="flex items-start gap-2"><i class="fa-solid fa-check-double text-rose-600 mt-0.5"></i><span>Dễ học dễ nhớ bài</span></div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-3 mt-5 pt-4 border-t border-rose-100">
+<span class="text-xs font-bold text-slate-500">Quy mô: 5 Chủ đề tư duy</span>
+<button class="px-4 py-2.5 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-bold text-sm shadow-md hover:shadow-lg transition inline-flex items-center gap-2" onclick="openInfographicModal()"><i class="fa-solid fa-images"></i><span>Xem Thư Viện Infographic</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section class="py-12 bg-white border-y border-orange-100">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto space-y-3">
+<h3 class="text-2xl sm:text-3xl font-extrabold text-slate-800 heading-font">
+                    Tại sao cần số hóa học liệu môn Ngữ Văn 6?
+                </h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mt-10 items-stretch">
+<div class="benefit-card p-5 sm:p-6 rounded-3xl bg-amber-50/70 border-2 border-amber-200 hover:shadow-lg transition duration-300 flex flex-col">
+<img alt="Trực quan hóa khái niệm trừu tượng" class="van6-unified-hover w-full aspect-square object-cover rounded-3xl border-2 border-white shadow-md mb-5" loading="lazy" src="assets/images/5ae82bcc736798d4.webp"/>
+<p class="text-sm text-slate-600 leading-relaxed">Bản đồ tư duy và infographic giúp các em "nhìn thấy" cấu trúc ngữ văn một cách tự nhiên.</p>
+</div>
+<div class="benefit-card p-5 sm:p-6 rounded-3xl bg-rose-50/70 border-2 border-rose-200 hover:shadow-lg transition duration-300 flex flex-col">
+<img alt="Học mọi lúc - Ôn mọi nơi" class="van6-unified-hover w-full aspect-square object-cover rounded-3xl border-2 border-white shadow-md mb-5" loading="lazy" src="assets/images/5787757f4eb42275.png"/>
+<p class="text-sm text-slate-600 leading-relaxed">Giúp học sinh hứng thú hơn trong việc học tập thông qua các sản phẩm số.</p>
+</div>
+<div class="benefit-card p-5 sm:p-6 rounded-3xl bg-sky-50/70 border-2 border-sky-200 hover:shadow-lg transition duration-300 flex flex-col">
+<img alt="Sử dụng đa phương tiện" class="van6-unified-hover w-full aspect-square object-cover rounded-3xl border-2 border-white shadow-md mb-5" loading="lazy" src="assets/images/5ea943ff9abb220d.webp"/>
+<p class="text-sm text-slate-600 leading-relaxed">Học sinh và thầy cô giáo có thể sử dụng học liệu một cách đa phương tiện, mọi lúc, mọi nơi.</p>
+</div>
+<div class="benefit-card p-5 sm:p-6 rounded-3xl bg-emerald-50/70 border-2 border-emerald-200 hover:shadow-lg transition duration-300 flex flex-col">
+<img alt="Đồng hành cùng Giáo viên &amp; Phụ huynh" class="van6-unified-hover w-full aspect-square object-cover rounded-3xl border-2 border-white shadow-md mb-5" loading="lazy" src="assets/images/ad16b1368b3a3987.webp"/>
+<p class="text-sm text-slate-600 leading-relaxed">Cung cấp sẵn tài liệu cho giáo viên và phiếu bài tập tin cậy để phụ huynh theo sát lộ trình của con.</p>
+</div>
+</div>
+<div aria-label="Vị trí thẻ đang xem" class="benefit-dots md:hidden"><span class="active"></span><span></span><span></span></div>
+<p class="benefit-hint md:hidden">Vuốt sang trái hoặc phải để xem tiếp <span aria-hidden="true">↔</span></p>
+</div>
+</section>
+<!-- SECTION: 2 SẢN PHẨM TRỌNG TÂM DỰ THI -->
+<!-- SECTION: KHO HỌC LIỆU SỐ TOÀN DIỆN (SGK, KHBD, PHIẾU BÀI TẬP, PPT, GAME) -->
+<section class="py-16 bg-white" id="hub">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+<div class="space-y-2">
+<div class="inline-flex items-center space-x-2 text-orange-600 text-xs font-extrabold uppercase tracking-widest bg-orange-100 px-3 py-1 rounded-full">
+<span>📚 Kho Tài Nguyên Số Hóa</span>
+</div>
+<h3 class="text-3xl font-extrabold text-slate-800 heading-font">
+                        Thư Viện Học Liệu Tích Hợp
+                    </h3>
+<p class="text-slate-600 text-sm max-w-2xl">
+                        Nguồn tài nguyên phong phú phục vụ toàn diện công tác dạy học của giáo viên và việc tự học của học sinh Trường THCS Khánh Hội.
+                    </p>
+</div>
+<!-- Category Filters (Tabs) -->
+<div class="flex flex-wrap gap-2 mt-4 md:mt-0" id="filterTabs">
+<button class="tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-orange-500 text-white shadow-sm transition" onclick="filterResources('all')">
+                        Tất Cả
+                    </button>
+<button class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-600 hover:bg-orange-100 hover:text-orange-700 transition" onclick="filterResources('sgk')">
+                        📖 SGK &amp; SBT
+                    </button>
+<button class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-600 hover:bg-orange-100 hover:text-orange-700 transition" onclick="filterResources('khbd')">
+                        📝 Kế Hoạch Bài Dạy
+                    </button>
+<button class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-600 hover:bg-orange-100 hover:text-orange-700 transition" onclick="filterResources('phieu')">
+                        📑 Phiếu Bài Tập
+                    </button>
+<button class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-600 hover:bg-orange-100 hover:text-orange-700 transition" onclick="filterResources('ppt')">
+                        💻 Bài Giảng Điện Tử
+                    </button>
+<button class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-600 hover:bg-orange-100 hover:text-orange-700 transition" onclick="filterResources('game')">
+                        🎲 Trò Chơi Lớp Học
+                    </button>
+</div>
+</div>
+<!-- Resource Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="resourceGrid" style="align-items:stretch">
+<!-- Item 1: SGK Ngữ Văn 6 Tập 1 -->
+<div aria-label="Mở thư viện học liệu Sách giáo khoa" class="resource-card bg-white rounded-3xl p-5 border-2 border-slate-100 hover:border-orange-300 shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between" data-category="sgk" data-drive-url="https://drive.google.com/drive/folders/1vPSXp3EB81P7tzC_B535mpMpJ-9U75PO?usp=sharing" data-library-key="sgk" role="link" tabindex="0">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-sky-100 text-sky-800">Sách Giáo Khoa</span>
+<span class="text-xs text-slate-400 font-semibold"><i class="fa-solid fa-file-pdf text-red-500 mr-1"></i>PDF Trực Tuyến</span>
+</div>
+<div class="sgk-preview-row">
+<img alt="Minh họa Kế hoạch bài dạy" class="van6-unified-hover sgk-preview-image" loading="lazy" src="assets/images/8aedf2de0f560a1e.webp"/>
+<div class="sgk-preview-copy"><h4 class="font-bold text-slate-800 text-base hover:text-orange-600 transition">Sách Giáo Khoa</h4>
+<p class="text-xs text-slate-500 mt-1 leading-relaxed">Bản số hóa chuẩn của Bộ GD&amp;ĐT và các tài liệu liên quan.</p></div>
+<div class="resource-inline-actions">
+<a aria-label="Mở thư mục Google Drive sgk trong tab mới" class="text-xs font-bold text-orange-600 hover:text-orange-700 bg-orange-50 hover:bg-orange-100 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5" data-library-key="sgk" href="#thu-vien-hoc-lieu">
+<i class="fa-solid fa-eye"></i> Xem Ngay
+                        </a>
+</div></div>
+</div>
+</div>
+<!-- Item 2: KHBD Thánh Gióng -->
+<div aria-label="Mở thư viện học liệu Kế hoạch bài dạy" class="resource-card bg-white rounded-3xl p-5 border-2 border-slate-100 hover:border-orange-300 shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between" data-category="khbd" data-drive-url="https://drive.google.com/drive/folders/1QIbo__RNpTmhPLNmXCbCA-IQv-6DVjIg?usp=sharing" data-library-key="khbd" role="link" tabindex="0">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-emerald-100 text-emerald-800">Kế Hoạch Bài Dạy</span>
+<span class="text-xs text-slate-400 font-semibold"><i class="fa-solid fa-file-word text-blue-500 mr-1"></i>Docx / CV 5512</span>
+</div>
+<div class="resource-preview-row"><img alt="Ảnh minh họa học liệu 2" class="van6-unified-hover resource-preview-image" loading="lazy" src="assets/images/d4dcf7aa04716684.webp"/><div class="resource-preview-copy"><h4 class="font-bold text-slate-800 text-lg hover:text-orange-600 transition">Kế Hoạch Bài Dạy</h4>
+<p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                            Thiết kế theo công văn 5512, tích hợp hoạt động đổi mới phương pháp dạy học.
+                        </p></div><div class="resource-inline-actions">
+<a aria-label="Mở thư mục Google Drive khbd trong tab mới" class="text-xs font-bold text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5" data-library-key="khbd" href="#thu-vien-hoc-lieu">
+<i class="fa-solid fa-arrow-down-to-bracket"></i> Tải Giáo Án
+                        </a>
+</div></div>
+</div>
+</div>
+<!-- Item 3: Phiếu Học Tập Thơ Lục Bát -->
+<div aria-label="Mở thư viện học liệu Phiếu học tập" class="resource-card bg-white rounded-3xl p-5 border-2 border-slate-100 hover:border-orange-300 shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between" data-category="phieu" data-drive-url="https://drive.google.com/drive/folders/1IyZ1K7XCbizwQptwh5c-ScHuBhBZvRwE?usp=sharing" data-library-key="phieu" role="link" tabindex="0">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-amber-100 text-amber-800">Phiếu Học Tập</span>
+<span class="text-xs text-slate-400 font-semibold"><i class="fa-solid fa-pen-ruler text-amber-500 mr-1"></i>Tự Rèn Luyện</span>
+</div>
+<div class="resource-preview-row"><img alt="Ảnh minh họa học liệu 3" class="van6-unified-hover resource-preview-image" loading="lazy" src="assets/images/f734fa861981a75b.webp"/><div class="resource-preview-copy"><h4 class="font-bold text-slate-800 text-lg hover:text-orange-600 transition">Phiếu học tập</h4>
+<p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                            Hệ thống phiếu bài tập dạy học trên lớp và về nhà
+                        </p></div><div class="resource-inline-actions">
+<a aria-label="Mở thư mục Google Drive phieu trong tab mới" class="text-xs font-bold text-amber-600 hover:text-amber-700 bg-amber-50 hover:bg-amber-100 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5" data-library-key="phieu" href="#thu-vien-hoc-lieu">
+<i class="fa-solid fa-print"></i> Xem &amp; In
+                        </a>
+</div></div>
+</div>
+</div>
+<!-- Item 4: Slide Bài Giảng Cô Bé Bán Diêm -->
+<div aria-label="Mở thư viện học liệu Bài giảng điện tử" class="resource-card bg-white rounded-3xl p-5 border-2 border-slate-100 hover:border-orange-300 shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between" data-category="ppt" data-drive-url="https://drive.google.com/drive/folders/18tRGY4FK5_CdaLUY5F5_UwFeXtFuN-hT?usp=sharing" data-library-key="baigiang" role="link" tabindex="0">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-rose-100 text-rose-800">Bài Giảng Điện Tử</span>
+<span class="text-xs text-slate-400 font-semibold"><i class="fa-solid fa-file-powerpoint text-orange-500 mr-1"></i>Canva / PPTX</span>
+</div>
+<div class="resource-preview-row"><img alt="Ảnh minh họa học liệu 4" class="van6-unified-hover resource-preview-image" loading="lazy" src="assets/images/62c6f0af6c80aee8.webp"/><div class="resource-preview-copy"><h4 class="font-bold text-slate-800 text-lg hover:text-orange-600 transition">Bài giảng điện tử</h4>
+<p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                            Bài giảng điện tử tích hợp năng lực số, năng lực AI phù hợp với chương trình đổi mới.
+                        </p></div><div class="resource-inline-actions">
+<a aria-label="Mở thư mục Google Drive ppt trong tab mới" class="text-xs font-bold text-rose-600 hover:text-rose-700 bg-rose-50 hover:bg-rose-100 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5" data-library-key="baigiang" href="#thu-vien-hoc-lieu">
+<i class="fa-solid fa-play"></i> Trình Chiếu
+                        </a>
+</div></div>
+</div>
+</div>
+<!-- Item 5: Trò Chơi Ô Chữ "Cổ Tích Kỳ Ảo" -->
+<div class="resource-card bg-white rounded-3xl p-5 border-2 border-slate-100 hover:border-orange-300 shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between" data-category="game">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-purple-100 text-purple-800">Trò Chơi Học Tập</span>
+<span class="text-xs text-slate-400 font-semibold"><i class="fa-solid fa-gamepad text-purple-500 mr-1"></i>Khởi Động Lớp</span>
+</div>
+<div class="resource-preview-row"><img alt="Ảnh minh họa học liệu 5" class="van6-unified-hover resource-preview-image" loading="lazy" src="assets/images/1494a90040e52cea.webp"/><div class="resource-preview-copy"><h4 class="font-bold text-slate-800 text-lg hover:text-orange-600 transition">Trò chơi tích hợp</h4>
+<p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                            Hệ thống Game khởi động đầu giờ, game học tập, game tương tác.
+                        </p></div><div class="resource-inline-actions">
+<a aria-label="Mở trò chơi học tập trong tab mới" class="text-xs font-bold text-purple-600 bg-purple-50 hover:bg-purple-100 px-3 py-1.5 rounded-lg flex items-center justify-center gap-1.5 transition" href="#" onclick="return openEmbeddedGame(event)" rel="noopener">
+<i class="fa-solid fa-dice"></i> Trò chơi học tập
+                        </a>
+</div></div>
+</div>
+</div>
+<!-- Item 6: Đề Thi & Ma Trận Đánh Giá Giữa Kỳ -->
+<div aria-label="Mở thư viện học liệu Bộ đề kiểm tra" class="resource-card bg-white rounded-3xl p-5 border-2 border-slate-100 hover:border-orange-300 shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between" data-category="phieu" data-drive-url="https://drive.google.com/drive/folders/1cMjA9_k5IBuWuX2Qmholo5VrTcvEoOm3?usp=sharing" data-library-key="dethi" role="link" tabindex="0">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-indigo-100 text-indigo-800">Ngân Hàng Đề Thi</span>
+<span class="text-xs text-slate-400 font-semibold"><i class="fa-solid fa-list-check text-indigo-500 mr-1"></i>Chuẩn Ma Trận</span>
+</div>
+<div class="resource-preview-row"><img alt="Ảnh minh họa học liệu 6" class="van6-unified-hover resource-preview-image" loading="lazy" src="assets/images/3bce6c4b5794911a.webp"/><div class="resource-preview-copy"><h4 class="font-bold text-slate-800 text-lg hover:text-orange-600 transition">Bộ Đề Kiểm tra</h4>
+<p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                            Kèm bảng đặc tả ma trận câu hỏi 4 mức độ: Nhận biết, Thông hiểu, Vận dụng và Vận dụng cao theo đúng tinh thần đổi mới.
+                        </p></div><div class="resource-inline-actions">
+<a aria-label="Mở thư mục Google Drive de trong tab mới" class="text-xs font-bold text-indigo-600 hover:text-indigo-700 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5" data-library-key="dethi" href="#thu-vien-hoc-lieu">
+<i class="fa-solid fa-download"></i> Tải Trọn Bộ
+                        </a>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FOOTER: THÔNG TIN TÁC GIẢ & BẢN QUYỀN SỐ HÓA -->
+<footer class="bg-slate-900 text-slate-300 pt-16 pb-12 border-t-4 border-orange-400" id="footer">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+<!-- Col 1: Thông tin sản phẩm -->
+<div class="md:col-span-5 space-y-4">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-xl bg-orange-500 flex items-center justify-center text-white text-xl">
+                            📚
+                        </div>
+<h4 class="text-lg font-bold text-white heading-font">
+                            Kho Học Liệu Ngữ Văn
+                        </h4>
+</div>
+<p class="text-xs text-slate-400 leading-relaxed">
+                        Sản phẩm dự thi Phong trào Sáng kiến đổi mới &amp; Chuyển đổi số trong dạy học năm học 2024 - 2025. Hướng tới xây dựng lớp học hạnh phúc và khơi nguồn đam mê văn chương cho học sinh THCS.
+                    </p>
+<div class="pt-2 text-xs text-amber-300 font-semibold flex items-center space-x-2">
+<span>💐 Kính chúc quý Thầy Cô ngày 20/11 tràn đầy niềm vui &amp; hạnh phúc!</span>
+</div>
+</div>
+<!-- Col 2: Tác giả & Đơn vị -->
+<div class="md:col-span-4 space-y-3">
+<h5 class="text-sm font-bold uppercase tracking-wider text-white">Tác Giả &amp; Đơn Vị Công Tác</h5>
+<ul class="text-xs space-y-2.5 text-slate-300">
+<li class="flex items-center space-x-2">
+<i class="fa-solid fa-user-tie text-orange-400 w-4"></i>
+<span class="font-bold text-white">Cô Nguyễn Thị Bích Phương</span>
+</li>
+<li class="flex items-center space-x-2">
+<i class="fa-solid fa-bookmark text-rose-400 w-4"></i>
+<span>Tổ bộ môn: Ngữ Văn, Lịch sử - Địa lí</span>
+</li>
+<li class="flex items-center space-x-2">
+<i class="fa-solid fa-school-flag text-amber-400 w-4"></i>
+<span>Trường THCS Khánh Hội</span>
+</li>
+<li class="flex items-center space-x-2">
+<i class="fa-solid fa-envelope text-sky-400 w-4"></i>
+<span>Email: bichphuong.thcskhanhhoi@gmail.com</span>
+</li>
+</ul>
+</div>
+<!-- Col 3: Hướng dẫn cho học sinh -->
+<div class="md:col-span-3 space-y-3">
+<h5 class="text-sm font-bold uppercase tracking-wider text-white">Kênh Hỗ Trợ Học Tập</h5>
+<p class="text-xs text-slate-400">
+                        Học sinh có thắc mắc về bài đọc hiểu hoặc cần xin thêm tài liệu ôn thi vui lòng liên hệ cô qua Zalo lớp học.
+                    </p>
+<div class="flex space-x-3 pt-2">
+<a class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-orange-500 text-white flex items-center justify-center transition" href="javascript:showToast('Liên hệ qua Zalo cô giáo!')" title="Zalo">
+<i class="fa-solid fa-comment-dots"></i>
+</a>
+<a class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-rose-500 text-white flex items-center justify-center transition" href="javascript:showToast('Trang web nhà trường THCS Khánh Hội!')" title="Cổng thông tin">
+<i class="fa-solid fa-globe"></i>
+</a>
+<a class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-amber-500 text-white flex items-center justify-center transition" href="#about" title="Lên đầu trang">
+<i class="fa-solid fa-arrow-up"></i>
+</a>
+</div>
+</div>
+</div>
+<!-- Bottom Copyright -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+<p>© 2024 Bản quyền ý tưởng &amp; tư liệu thuộc về Cô Nguyễn Thị Bích Phương - Trường THCS Khánh Hội.</p>
+<p class="flex items-center space-x-1">
+<span>Số hóa với niềm say mê giáo dục</span> <span class="text-rose-500">❤️</span>
+</p>
+</div>
+</div>
+</footer>
+<!-- MODAL 1: Sách lật Heyzine 63 trang -->
+<div aria-label="Sổ ghi nhớ Văn 6 dạng lật" aria-modal="true" class="fixed inset-0 z-50 hidden bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4" id="flipbookModal" role="dialog">
+<div class="bg-white rounded-2xl sm:rounded-3xl w-full max-w-6xl p-3 sm:p-5 shadow-2xl border-2 border-orange-200 flex flex-col" style="max-height:96dvh">
+<div class="flex items-center justify-between gap-2 pb-3"><div><h4 class="font-bold text-slate-800 text-base sm:text-lg">Sổ Ghi Nhớ Ngữ Văn 6 – 63 trang</h4><p class="text-xs text-slate-500">Tác giả: Cô Nguyễn Thị Bích Phương</p></div><button aria-label="Đóng sách" class="w-10 h-10 shrink-0 rounded-full bg-rose-100 text-rose-700 font-bold" onclick="closeModal('flipbookModal')">✕</button></div>
+<iframe allow="autoplay; fullscreen; clipboard-write" allowfullscreen="" id="heyzineFlipbook" loading="lazy" scrolling="no" src="https://heyzine.com/flip-book/045a48f737.html" style="width:100%;height:min(76dvh,760px);min-height:320px;border:1px solid #fed7aa;border-radius:14px;background:#fffaf5" title="Sổ ghi nhớ Ngữ văn 6 – 63 trang"></iframe>
+<div class="flex flex-wrap justify-between gap-2 pt-3 text-xs"><span class="text-slate-500">Có thể xem toàn màn hình trong trình đọc</span><a class="font-bold text-orange-600 underline" href="https://heyzine.com/flip-book/045a48f737.html" rel="noopener noreferrer" target="_blank">Mở sách trong tab mới</a></div>
+</div>
+</div>
+<!-- MODAL 2: THƯ VIỆN INFOGRAPHIC 5 CHỦ ĐỀ -->
+<style>
+#infographicModal .ig-slide{width:100%;height:auto;max-height:calc(90dvh - 175px);object-fit:contain;margin:auto;border-radius:14px;user-select:none}
+#infographicModal .ig-stage{min-height:140px;touch-action:pan-y;position:relative;display:flex;align-items:center;justify-content:center}
+#infographicModal .ig-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:44px;height:44px;border-radius:999px;background:rgba(255,255,255,.94);border:2px solid #f9a8d4;box-shadow:0 3px 15px #0003;color:#be185d;font-size:26px;font-weight:800;display:grid;place-items:center;cursor:pointer}
+#infographicModal .ig-arrow:hover{background:#fce7f3}#infographicModal .ig-prev{left:8px}#infographicModal .ig-next{right:8px}
+#infographicModal .ig-slide.hidden{display:none}
+@media(max-width:640px){#infographicModal .ig-arrow{width:35px;height:35px;font-size:22px}#infographicModal .ig-prev{left:2px}#infographicModal .ig-next{right:2px}#infographicModal .ig-slide{max-height:calc(90dvh - 160px);border-radius:9px}}
+</style>
+<div aria-label="Thư viện Infographic Văn 6" aria-modal="true" class="fixed inset-0 z-50 hidden bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4" id="infographicModal" role="dialog">
+<div class="bg-white rounded-3xl max-w-6xl w-full p-3 sm:p-5 shadow-2xl border-4 border-rose-200 relative flex flex-col max-h-[94dvh]">
+<div class="flex items-center justify-between gap-3 pb-2 sm:pb-3 border-b border-rose-100">
+<div><h3 class="font-bold text-lg sm:text-2xl text-rose-600">📚 Thư viện Infographic Văn 6</h3><p class="text-xs sm:text-sm text-slate-500">5 chủ đề học kì I · Vuốt hoặc nhấn mũi tên để xem</p></div>
+<button aria-label="Đóng thư viện" class="shrink-0 w-10 h-10 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold" onclick="closeModal('infographicModal')">✕</button>
+</div>
+<div class="overflow-y-auto flex-1 min-h-0 py-2" id="igSwipeArea">
+<div class="ig-stage">
+<button aria-label="Ảnh trước" class="ig-arrow ig-prev" onclick="igMove(-1)">‹</button>
+<img alt="Infographic Ngữ văn 6 - Bài 1" class="ig-slide" draggable="false" src="assets/images/c9f08fcd5a851023.webp"/>
+<img alt="Infographic Ngữ văn 6 - Bài 2" class="ig-slide hidden" draggable="false" loading="lazy" src="assets/images/808166c526269306.webp"/>
+<img alt="Infographic Ngữ văn 6 - Bài 3" class="ig-slide hidden" draggable="false" loading="lazy" src="assets/images/39b79d4c7cef493c.webp"/>
+<img alt="Infographic Ngữ văn 6 - Bài 4" class="ig-slide hidden" draggable="false" loading="lazy" src="assets/images/9efea11d0268bf97.webp"/>
+<img alt="Infographic Ngữ văn 6 - Bài 5" class="ig-slide hidden" draggable="false" loading="lazy" src="assets/images/51a692ee93182e40.webp"/>
+<button aria-label="Ảnh tiếp theo" class="ig-arrow ig-next" onclick="igMove(1)">›</button>
+</div>
+</div>
+<div class="flex items-center justify-between gap-2 pt-2 border-t border-rose-100">
+<span class="font-semibold text-slate-700 text-sm sm:text-base" id="igCaption">Bài 1: Tôi và các bạn</span>
+<span class="rounded-full bg-rose-50 text-rose-600 font-bold text-sm px-3 py-1" id="igCounter">1 / 5</span>
+</div>
+</div>
+</div>
+<script>
+(function(){
+ const labels=['Bài 1: Tôi và các bạn','Bài 2: Gõ cửa trái tim','Bài 3: Yêu thương và chia sẻ','Bài 4: Quê hương yêu dấu','Bài 5: Những nẻo đường xứ sở'];
+ let index=0, startX=null;
+ window.igMove=function(delta){const slides=document.querySelectorAll('#infographicModal .ig-slide');if(!slides.length)return;index=(index+delta+slides.length)%slides.length;slides.forEach((im,i)=>im.classList.toggle('hidden',i!==index));document.getElementById('igCounter').textContent=(index+1)+' / '+slides.length;document.getElementById('igCaption').textContent=labels[index];};
+ window.igReset=function(){index=0;igMove(0)};
+ document.addEventListener('keydown',function(e){const modal=document.getElementById('infographicModal');if(!modal||modal.classList.contains('hidden'))return;if(e.key==='ArrowRight'){e.preventDefault();igMove(1)}else if(e.key==='ArrowLeft'){e.preventDefault();igMove(-1)}else if(e.key==='Escape'){closeModal('infographicModal')}});
+ const area=document.getElementById('igSwipeArea');area.addEventListener('touchstart',e=>{startX=e.changedTouches[0].screenX},{passive:true});area.addEventListener('touchend',e=>{if(startX===null)return;const dx=e.changedTouches[0].screenX-startX;if(Math.abs(dx)>45)igMove(dx<0?1:-1);startX=null},{passive:true});
+})();
+</script>
+<!-- MODAL 3: XEM TÀI LIỆU DỰ PHÒNG CHUẨN IFRAME -->
+<div class="fixed inset-0 z-50 hidden bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4" id="previewModal">
+<div class="bg-white rounded-3xl max-w-4xl w-full p-6 shadow-2xl border-4 border-orange-200 relative flex flex-col h-[85vh]">
+<div class="flex items-center justify-between pb-3 border-b border-slate-100">
+<h4 class="text-base font-bold text-slate-800 truncate" id="previewModalTitle">
+                    Xem Trước Học Liệu
+                </h4>
+<button class="w-8 h-8 rounded-full bg-slate-100 hover:bg-rose-100 text-slate-500 hover:text-rose-600 flex items-center justify-center font-bold" onclick="closeModal('previewModal')">
+                    ✕
+                </button>
+</div>
+<div class="py-3 flex-1">
+<iframe class="w-full h-full rounded-2xl border border-slate-200" id="previewIframe" src="" title="Xem tài liệu"></iframe>
+</div>
+</div>
+</div>
+<!-- TOAST NOTIFICATION MESSAGE BOX -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center space-x-3 text-sm font-semibold" id="toast">
+<span class="text-xl">🌸</span>
+<span id="toastMsg">Thông báo</span>
+</div>
+<!-- JAVASCRIPT LOGIC -->
+<script>
+        // Toggle Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Filter Resources Tab
+        function filterResources(category) {
+            const cards = document.querySelectorAll('.resource-card');
+            const buttons = document.querySelectorAll('#filterTabs .tab-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-orange-500', 'text-white');
+                btn.classList.add('bg-slate-100', 'text-slate-600');
+            });
+            event.target.classList.remove('bg-slate-100', 'text-slate-600');
+            event.target.classList.add('bg-orange-500', 'text-white');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Modal Helpers
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+            if (id === 'previewModal') {
+                document.getElementById('previewIframe').src = '';
+            }
+        }
+        function openFlipbookModal() {
+            openModal('flipbookModal');
+        }
+        function openInfographicModal() {
+            openModal('infographicModal');
+        }
+        function previewDocument(title, url) {
+            document.getElementById('previewModalTitle').innerText = title;
+            document.getElementById('previewIframe').src = url;
+            openModal('previewModal');
+        }
+
+        // Toast Helper
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const msg = document.getElementById('toastMsg');
+            msg.innerText = message;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+
+        // Flipbook State and Navigation
+        const bookPages = [
+            {
+                title: "TRANG 1: CHỦ ĐIỂM 'LẮNG NGHE LỊCH SỬ NƯỚC MÌNH'",
+                heading: "1. Truyền Thuyết 'Thánh Gióng'",
+                items: [
+                    "<strong>Đặc trưng thể loại:</strong> Có cốt lõi lịch sử, chi tiết kỳ ảo hoang đường (tiếng nói đầu tiên đòi đi đánh giặc, lớn nhanh như thổi).",
+                    "<strong>Hình tượng Thánh Gióng:</strong> Biểu tượng cho lòng yêu nước, sức mạnh quật cường của nhân dân ta.",
+                    "<strong>Chi tiết nghệ thuật:</strong> Bụi tre ngà ngả màu vàng óng, vết chân ngựa hóa thành những ao hồ liên tiếp ở vùng Sóc Sơn.",
+                    "<strong>Bài học:</strong> Ý thức trách nhiệm của mỗi công dân đối với vận mệnh non sông."
+                ]
+            },
+            {
+                title: "TRANG 2: BÀI THƠ 'CHUYỆN CỔ NƯỚC MÌNH' (LÂM THỊ MỸ DẠ)",
+                heading: "2. Thể Thơ Lục Bát & Vẻ Đẹp Ca Dao",
+                items: [
+                    "<strong>Thể thơ:</strong> Lục bát truyền thống nhịp nhàng, êm ái như lời ru của bà, của mẹ.",
+                    "<strong>Ý nghĩa câu thơ:</strong> 'Tôi yêu chuyện cổ nước tôi / Vừa nhân hậu lại tuyệt vời sâu xa'. Chuyện cổ răn dạy con người sống hiền lành, nhân nghĩa.",
+                    "<strong>Phép tu từ tiêu biểu:</strong> So sánh, nhân hóa, điệp từ giúp tạo nhạc điệu thiết tha."
+                ]
+            },
+            {
+                title: "TRANG 3: KIẾN THỨC TIẾNG VIỆT LỚP 6",
+                heading: "3. Từ Đơn - Từ Phức & Biện Pháp Tu Từ Ẩn Dụ",
+                items: [
+                    "<strong>Từ phức:</strong> Gồm từ ghép (các tiếng có quan hệ về nghĩa) và từ láy (các tiếng có quan hệ về âm).",
+                    "<strong>Ẩn dụ:</strong> Là gọi tên sự vật, hiện tượng này bằng tên sự vật, hiện tượng khác có nét tương đồng (Ẩn dụ phẩm chất, hình thức, cách thức).",
+                    "<strong>Ví dụ:</strong> 'Người Cha mái tóc bạc' -> Ẩn dụ chỉ Bác Hồ kính yêu."
+                ]
+            }
+        ];
+        let currentPageIndex = 0;
+
+        function renderBookPage() {
+            const page = bookPages[currentPageIndex];
+            document.getElementById('pageIndicator').innerText = page.title;
+            document.getElementById('pageNumberLabel').innerText = `Trang ${currentPageIndex + 1} / ${bookPages.length}`;
+            
+            let html = `<h5 class="text-lg font-extrabold text-orange-800 heading-font">${page.heading}</h5>`;
+            html += `<ul class="list-disc pl-5 space-y-2 text-xs sm:text-sm">`;
+            page.items.forEach(item => {
+                html += `<li>${item}</li>`;
+            });
+            html += `</ul>`;
+            document.getElementById('bookPageContent').innerHTML = html;
+        }
+
+        function nextBookPage() {
+            if (currentPageIndex < bookPages.length - 1) {
+                currentPageIndex++;
+                renderBookPage();
+            } else {
+                showToast("Bạn đã đọc đến trang cuối của phần demo!");
+            }
+        }
+
+        function prevBookPage() {
+            if (currentPageIndex > 0) {
+                currentPageIndex--;
+                renderBookPage();
+            }
+        }
+
+        // Initialize on load
+        window.onload = function () {
+            renderBookPage();
+        };
+    </script>
+<script>
+(function(){
+  const carousel=document.getElementById('benefitCarousel');
+  if(!carousel) return;
+  const cards=Array.from(carousel.querySelectorAll('.benefit-card'));
+  const dots=Array.from(document.querySelectorAll('.benefit-dots span'));
+  let frame=0;
+  function update(){
+    if(window.innerWidth>=768) return;
+    let closest=0,dist=Infinity;
+    cards.forEach((card,i)=>{const d=Math.abs(card.getBoundingClientRect().left-carousel.getBoundingClientRect().left-16);if(d<dist){dist=d;closest=i;}});
+    dots.forEach((dot,i)=>dot.classList.toggle('active',i===closest));
+  }
+  carousel.addEventListener('scroll',()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(update)},{passive:true});
+  window.addEventListener('resize',update,{passive:true});
+  carousel.addEventListener('keydown',e=>{
+    if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;
+    if(window.innerWidth>=768)return;
+    e.preventDefault();
+    const r=carousel.getBoundingClientRect();
+    let closest=0,dist=Infinity;
+    cards.forEach((c,i)=>{let d=Math.abs(c.getBoundingClientRect().left-r.left-16);if(d<dist){dist=d;closest=i;}});
+    const next=Math.max(0,Math.min(cards.length-1,closest+(e.key==='ArrowRight'?1:-1)));
+    cards[next].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+  });
+  update();
+})();
+</script>
+<!-- Hộp giải thích Flipbook tương tác -->
+<style>
+#flipbookExplainDialog[hidden]{display:none!important}
+#flipbookExplainDialog{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(29,20,57,.75);backdrop-filter:blur(5px)}
+#flipbookExplainDialog .flipbook-explain-panel{position:relative;width:min(92vw,650px);max-height:94dvh;border:3px solid #ffc3df;border-radius:25px;overflow:hidden;background:#fff;box-shadow:0 20px 70px rgba(24,10,50,.28)}
+#flipbookExplainDialog img{display:block;width:100%;height:auto;max-height:88dvh;object-fit:contain;aspect-ratio:1/1}
+#flipbookExplainClose{position:absolute;right:10px;top:10px;z-index:2;width:42px;height:42px;border-radius:50%;background:#fff;color:#b20c65;font-size:28px;line-height:1;box-shadow:0 3px 12px #0003;cursor:pointer}
+@media(max-width:480px){#flipbookExplainDialog{padding:10px}#flipbookExplainDialog .flipbook-explain-panel{width:100%;border-radius:17px}#flipbookExplainClose{width:36px;height:36px;font-size:24px}}
+</style>
+<div aria-label="Flipbook Tương Tác là gì?" aria-modal="true" hidden="" id="flipbookExplainDialog" role="dialog">
+<div class="flipbook-explain-panel">
+<button aria-label="Đóng cửa sổ giải thích" id="flipbookExplainClose" type="button">×</button>
+<img alt="Infographic giải thích Flipbook tương tác, cách lật trang, phóng to thu nhỏ và học mọi lúc mọi nơi" src="assets/images/ddce40da5944d15f.png"/>
+</div>
+</div>
+<script>
+(function(){
+ const open=document.getElementById('flipbookExplainOpen'), dialog=document.getElementById('flipbookExplainDialog'), close=document.getElementById('flipbookExplainClose');
+ if(!open||!dialog||!close)return;
+ const dismiss=()=>{dialog.hidden=true;document.body.style.overflow='';open.focus();};
+ open.addEventListener('click',()=>{dialog.hidden=false;document.body.style.overflow='hidden';close.focus();});
+ close.addEventListener('click',dismiss);
+ dialog.addEventListener('click',e=>{if(e.target===dialog)dismiss();});
+ document.addEventListener('keydown',e=>{if(dialog.hidden)return;if(e.key==='Escape')dismiss();if(e.key==='Tab'){e.preventDefault();close.focus();}});
+})();
+</script>
+<!-- Giải thích Trực quan hóa 2D: infographic -->
+<style>
+#infographicExplainDialog[hidden]{display:none!important}
+#infographicExplainDialog{position:fixed;inset:0;z-index:100000;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(29,20,57,.75);backdrop-filter:blur(5px)}
+#infographicExplainDialog .info2d-panel{position:relative;width:min(92vw,650px);max-height:94dvh;border:3px solid #ffc3df;border-radius:25px;overflow:hidden;background:#fff;box-shadow:0 20px 70px rgba(24,10,50,.28)}
+#infographicExplainDialog img{display:block;width:100%;height:auto;max-height:88dvh;object-fit:contain;aspect-ratio:1/1;transform:none!important;transition:none!important;animation:none!important}
+#infographicExplainClose{position:absolute;right:10px;top:10px;z-index:2;width:42px;height:42px;border-radius:50%;background:#fff;color:#be185d;font-size:28px;line-height:1;box-shadow:0 3px 12px #0003;cursor:pointer}
+@media(max-width:480px){#infographicExplainDialog{padding:10px}#infographicExplainDialog .info2d-panel{width:100%;border-radius:17px}#infographicExplainClose{width:36px;height:36px;font-size:24px}}
+</style>
+<div aria-label="Trực quan hóa 2D là gì?" aria-modal="true" hidden="" id="infographicExplainDialog" role="dialog">
+<div class="info2d-panel">
+<button aria-label="Đóng cửa sổ giải thích" id="infographicExplainClose" type="button">×</button>
+<img alt="Infographic – Trực quan hóa tri thức: giải thích khái niệm, ưu điểm và ứng dụng trong Ngữ văn 6" src="assets/images/79772b3f4e09c232.png"/>
+</div>
+</div>
+<script>
+(function(){
+ const trigger=document.getElementById('infographicExplainOpen');
+ const dialog=document.getElementById('infographicExplainDialog');
+ const close=document.getElementById('infographicExplainClose');
+ if(!trigger||!dialog||!close)return;
+ let previousFocus=null;
+ function open(){previousFocus=document.activeElement;dialog.hidden=false;document.body.style.overflow='hidden';close.focus();}
+ function shut(){dialog.hidden=true;document.body.style.overflow='';(previousFocus||trigger).focus();}
+ trigger.addEventListener('click',open);
+ close.addEventListener('click',shut);
+ dialog.addEventListener('click',function(e){if(e.target===dialog)shut();});
+ document.addEventListener('keydown',function(e){if(!dialog.hidden&&e.key==='Escape')shut();});
+})();
+</script>
+<style id="resource-cards-tight-footer-v3">
+/* Khoảng cách giữa nội dung và hàng nút: gọn và đều ở cả sáu ô */
+#resourceGrid .resource-card { justify-content:flex-start !important; }
+#resourceGrid .resource-card > div:first-child { margin-bottom:0 !important; }
+#resourceGrid .resource-card > .border-t { margin-top:8px !important; padding-top:8px !important; }
+</style>
+<script>
+(function(){
+  function alignResourceFooters(){
+    const grid=document.getElementById('resourceGrid'); if(!grid)return;
+    const cards=Array.from(grid.querySelectorAll('.resource-card'));
+    cards.forEach(card=>{const body=card.firstElementChild;if(body)body.style.minHeight='';});
+    const rows=new Map();
+    cards.forEach(card=>{
+      const body=card.firstElementChild;if(!body)return;
+      const key=Math.round(card.getBoundingClientRect().top);
+      if(!rows.has(key))rows.set(key,[]);rows.get(key).push(card);
+    });
+    rows.forEach(row=>{
+      const max=Math.max(...row.map(card=>card.firstElementChild.getBoundingClientRect().height));
+      row.forEach(card=>card.firstElementChild.style.minHeight=Math.ceil(max)+'px');
+    });
+  }
+  let pending=false;
+  function schedule(){if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;alignResourceFooters();});}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',schedule);else schedule();
+  window.addEventListener('load',schedule);
+  window.addEventListener('resize',schedule);
+  const grid=document.getElementById('resourceGrid');
+  if(grid && window.MutationObserver){new MutationObserver(schedule).observe(grid,{attributes:true,attributeFilter:['style','class'],childList:true});}
+})();
+</script>
+<style id="resource-buttons-row-alignment">
+/* Giữ các nút cùng cao độ trong từng hàng, không nới rộng thẻ */
+#resourceGrid .resource-card .sgk-preview-copy,
+#resourceGrid .resource-card .resource-preview-copy { box-sizing:border-box; }
+</style>
+<script id="resource-buttons-row-alignment-script">
+(function(){
+ function alignButtons(){
+  const grid=document.getElementById('resourceGrid');if(!grid)return;
+  const cards=[...grid.querySelectorAll('.resource-card')].filter(x=>x.getClientRects().length);
+  cards.forEach(c=>{const x=c.querySelector('.sgk-preview-copy,.resource-preview-copy');if(x)x.style.minHeight='';});
+  const rows=[];
+  cards.forEach(card=>{
+   const top=Math.round(card.getBoundingClientRect().top);
+   let row=rows.find(r=>Math.abs(r.top-top)<5);
+   if(!row){row={top,cards:[]};rows.push(row)}row.cards.push(card);
+  });
+  rows.forEach(row=>{
+   const entries=row.cards.map(card=>({card,copy:card.querySelector('.sgk-preview-copy,.resource-preview-copy'),action:card.querySelector('.resource-inline-actions')})).filter(x=>x.copy&&x.action);
+   if(!entries.length)return;
+   const target=Math.max(...entries.map(x=>x.action.getBoundingClientRect().top-x.card.getBoundingClientRect().top));
+   entries.forEach(x=>{
+    const current=x.action.getBoundingClientRect().top-x.card.getBoundingClientRect().top;
+    const delta=Math.max(0,target-current);
+    if(delta>.5)x.copy.style.minHeight=Math.ceil(x.copy.getBoundingClientRect().height+delta)+'px';
+   });
+  });
+ }
+ let queued=false;
+ function schedule(){if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;alignButtons()})}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',schedule);else schedule();
+ window.addEventListener('load',schedule);window.addEventListener('resize',schedule);
+})();
+</script>
+<script>
+function openEmbeddedGame(e){
+ if(e)e.preventDefault();
+ const url=new URL('games/index.html',document.baseURI).href;
+ const tab=window.open(url,'_blank','noopener');
+ if(!tab){window.location.href=url;}
+ return false;
+}
+</script><section aria-label="Thư viện học liệu Ngữ văn" aria-modal="true" id="van6Library" role="dialog"><div class="v6l-shell"><div class="v6l-top"><strong>🌷 HÀNH TRÌNH NGỮ VĂN SỐ</strong><button class="v6l-home" id="v6lClose" type="button"><i class="fa-solid fa-house"></i> Trở về trang chủ</button></div><div class="v6l-hero"><span>✨ KHÁM PHÁ TRI THỨC</span><h2>Thư viện học liệu Ngữ văn</h2><p>Không gian học liệu số dành cho giáo viên và học sinh – lựa chọn kho tài liệu để xem, tải và sử dụng trong học tập.</p></div><div id="v6lOverview"><label class="sr-only" for="v6lSearch">Tìm kiếm loại học liệu</label><input class="v6l-search" id="v6lSearch" placeholder="🔎 Tìm kiếm loại học liệu (ví dụ: phiếu học tập, đề kiểm tra)..." type="search"/><div class="v6l-chips" id="v6lChips"><button class="v6l-chip active" data-filter="all">Tất cả học liệu</button><button class="v6l-chip" data-filter="sgk">Sách giáo khoa</button><button class="v6l-chip" data-filter="khbd">Kế hoạch bài dạy</button><button class="v6l-chip" data-filter="phieu">Phiếu học tập</button><button class="v6l-chip" data-filter="baigiang">Bài giảng điện tử</button><button class="v6l-chip" data-filter="dethi">Bộ đề kiểm tra</button></div><div class="v6l-grid" id="v6lGrid"><article class="v6l-card" data-key="sgk" data-search="sách giáo khoa sách giáo khoa và sách tham khảo"><div class="v6l-icon" style="background:#70cfff"><i class="fa-solid fa-book-open"></i></div><h3>Sách giáo khoa</h3><p>Sách giáo khoa và sách tham khảo</p><button class="v6l-open" data-open="sgk" type="button">Khám phá học liệu <i class="fa-solid fa-arrow-right"></i></button></article><article class="v6l-card" data-key="khbd" data-search="kế hoạch bài dạy kế hoạch tổ chức hoạt động dạy học"><div class="v6l-icon" style="background:#bdeDB2"><i class="fa-solid fa-clipboard-list"></i></div><h3>Kế hoạch bài dạy</h3><p>Kế hoạch tổ chức hoạt động dạy học</p><button class="v6l-open" data-open="khbd" type="button">Khám phá học liệu <i class="fa-solid fa-arrow-right"></i></button></article><article class="v6l-card" data-key="phieu" data-search="phiếu học tập phiếu luyện tập và thực hành"><div class="v6l-icon" style="background:#fff1cc"><i class="fa-solid fa-file-lines"></i></div><h3>Phiếu học tập</h3><p>Phiếu luyện tập và thực hành</p><button class="v6l-open" data-open="phieu" type="button">Khám phá học liệu <i class="fa-solid fa-arrow-right"></i></button></article><article class="v6l-card" data-key="baigiang" data-search="bài giảng điện tử bài trình chiếu và tài nguyên số"><div class="v6l-icon" style="background:#e7d9ff"><i class="fa-solid fa-laptop-file"></i></div><h3>Bài giảng điện tử</h3><p>Bài trình chiếu và tài nguyên số</p><button class="v6l-open" data-open="baigiang" type="button">Khám phá học liệu <i class="fa-solid fa-arrow-right"></i></button></article><article class="v6l-card" data-key="dethi" data-search="bộ đề kiểm tra đề kiểm tra và tài liệu đánh giá"><div class="v6l-icon" style="background:#ffd7e9"><i class="fa-solid fa-file-circle-check"></i></div><h3>Bộ đề kiểm tra</h3><p>Đề kiểm tra và tài liệu đánh giá</p><button class="v6l-open" data-open="dethi" type="button">Khám phá học liệu <i class="fa-solid fa-arrow-right"></i></button></article></div><div class="v6l-empty" id="v6lEmpty">Chưa tìm thấy loại học liệu phù hợp. Hãy thử từ khóa khác.</div></div><div class="v6l-detail" data-detail="sgk"><button class="v6l-detail-back" type="button"><i class="fa-solid fa-arrow-left"></i> Tất cả học liệu</button><div class="v6l-detail-header"><div class="v6l-icon" style="background:#70cfff;margin:0"><i class="fa-solid fa-book-open"></i></div><div><h3>Sách giáo khoa</h3><p>Sách giáo khoa và sách tham khảo</p></div></div><div class="v6l-notice"><strong>📂 Kho tài liệu trên Google Drive</strong><p>Chọn “Mở kho tài liệu” để xem danh sách tệp, xem trước và tải về theo quyền chia sẻ của chủ sở hữu. Website không tự đọc danh sách tệp trong Drive.</p></div><a class="v6l-link" href="https://drive.google.com/drive/folders/1vPSXp3EB81P7tzC_B535mpMpJ-9U75PO?usp=sharing" rel="noopener noreferrer" target="_blank"><i class="fa-solid fa-folder-open"></i> Mở kho tài liệu <i class="fa-solid fa-arrow-up-right-from-square"></i></a><p class="v6l-note">Tài liệu mở trong tab mới; bạn có thể quay lại thư viện ở tab này bất cứ lúc nào.</p></div><div class="v6l-detail" data-detail="khbd"><button class="v6l-detail-back" type="button"><i class="fa-solid fa-arrow-left"></i> Tất cả học liệu</button><div class="v6l-detail-header"><div class="v6l-icon" style="background:#bdeDB2;margin:0"><i class="fa-solid fa-clipboard-list"></i></div><div><h3>Kế hoạch bài dạy</h3><p>Kế hoạch tổ chức hoạt động dạy học</p></div></div><div class="v6l-notice"><strong>📂 Kho tài liệu trên Google Drive</strong><p>Chọn “Mở kho tài liệu” để xem danh sách tệp, xem trước và tải về theo quyền chia sẻ của chủ sở hữu. Website không tự đọc danh sách tệp trong Drive.</p></div><a class="v6l-link" href="https://drive.google.com/drive/folders/1QIbo__RNpTmhPLNmXCbCA-IQv-6DVjIg?usp=sharing" rel="noopener noreferrer" target="_blank"><i class="fa-solid fa-folder-open"></i> Mở kho tài liệu <i class="fa-solid fa-arrow-up-right-from-square"></i></a><p class="v6l-note">Tài liệu mở trong tab mới; bạn có thể quay lại thư viện ở tab này bất cứ lúc nào.</p></div><div class="v6l-detail" data-detail="phieu"><button class="v6l-detail-back" type="button"><i class="fa-solid fa-arrow-left"></i> Tất cả học liệu</button><div class="v6l-detail-header"><div class="v6l-icon" style="background:#fff1cc;margin:0"><i class="fa-solid fa-file-lines"></i></div><div><h3>Phiếu học tập</h3><p>Phiếu luyện tập và thực hành</p></div></div><div class="v6l-notice"><strong>📂 Kho tài liệu trên Google Drive</strong><p>Chọn “Mở kho tài liệu” để xem danh sách tệp, xem trước và tải về theo quyền chia sẻ của chủ sở hữu. Website không tự đọc danh sách tệp trong Drive.</p></div><a class="v6l-link" href="https://drive.google.com/drive/folders/1IyZ1K7XCbizwQptwh5c-ScHuBhBZvRwE?usp=sharing" rel="noopener noreferrer" target="_blank"><i class="fa-solid fa-folder-open"></i> Mở kho tài liệu <i class="fa-solid fa-arrow-up-right-from-square"></i></a><p class="v6l-note">Tài liệu mở trong tab mới; bạn có thể quay lại thư viện ở tab này bất cứ lúc nào.</p></div><div class="v6l-detail" data-detail="baigiang"><button class="v6l-detail-back" type="button"><i class="fa-solid fa-arrow-left"></i> Tất cả học liệu</button><div class="v6l-detail-header"><div class="v6l-icon" style="background:#e7d9ff;margin:0"><i class="fa-solid fa-laptop-file"></i></div><div><h3>Bài giảng điện tử</h3><p>Bài trình chiếu và tài nguyên số</p></div></div><div class="v6l-notice"><strong>📂 Kho tài liệu trên Google Drive</strong><p>Chọn “Mở kho tài liệu” để xem danh sách tệp, xem trước và tải về theo quyền chia sẻ của chủ sở hữu. Website không tự đọc danh sách tệp trong Drive.</p></div><a class="v6l-link" href="https://drive.google.com/drive/folders/18tRGY4FK5_CdaLUY5F5_UwFeXtFuN-hT?usp=sharing" rel="noopener noreferrer" target="_blank"><i class="fa-solid fa-folder-open"></i> Mở kho tài liệu <i class="fa-solid fa-arrow-up-right-from-square"></i></a><p class="v6l-note">Tài liệu mở trong tab mới; bạn có thể quay lại thư viện ở tab này bất cứ lúc nào.</p></div><div class="v6l-detail" data-detail="dethi"><button class="v6l-detail-back" type="button"><i class="fa-solid fa-arrow-left"></i> Tất cả học liệu</button><div class="v6l-detail-header"><div class="v6l-icon" style="background:#ffd7e9;margin:0"><i class="fa-solid fa-file-circle-check"></i></div><div><h3>Bộ đề kiểm tra</h3><p>Đề kiểm tra và tài liệu đánh giá</p></div></div><div class="v6l-notice"><strong>📂 Kho tài liệu trên Google Drive</strong><p>Chọn “Mở kho tài liệu” để xem danh sách tệp, xem trước và tải về theo quyền chia sẻ của chủ sở hữu. Website không tự đọc danh sách tệp trong Drive.</p></div><a class="v6l-link" href="https://drive.google.com/drive/folders/1cMjA9_k5IBuWuX2Qmholo5VrTcvEoOm3?usp=sharing" rel="noopener noreferrer" target="_blank"><i class="fa-solid fa-folder-open"></i> Mở kho tài liệu <i class="fa-solid fa-arrow-up-right-from-square"></i></a><p class="v6l-note">Tài liệu mở trong tab mới; bạn có thể quay lại thư viện ở tab này bất cứ lúc nào.</p></div><p class="v6l-footer">🌸 Hệ thống học liệu số • Trường THCS Khánh Hội</p></div></section><script id="van6-library-behavior">(function(){const root=document.getElementById('van6Library'),overview=document.getElementById('v6lOverview'),cards=[...root.querySelectorAll('.v6l-card')],details=[...root.querySelectorAll('.v6l-detail')],chips=[...root.querySelectorAll('.v6l-chip')],search=document.getElementById('v6lSearch');let filter='all';function update(){let count=0;const q=search.value.trim().toLocaleLowerCase('vi');cards.forEach(c=>{const show=(filter==='all'||c.dataset.key===filter)&&(!q||c.dataset.search.includes(q));c.style.display=show?'':'none';if(show)count++});document.getElementById('v6lEmpty').style.display=count?'none':'block';chips.forEach(c=>c.classList.toggle('active',c.dataset.filter===filter))}function show(key){root.classList.add('is-open');document.body.classList.add('van6-library-open');const selected=details.find(d=>d.dataset.detail===key);overview.style.display=selected?'none':'';details.forEach(d=>d.classList.toggle('is-active',d===selected));root.scrollTop=0;history.replaceState(null,'',key?'#thu-vien-'+key:'#thu-vien-hoc-lieu')}function close(){root.classList.remove('is-open');document.body.classList.remove('van6-library-open');history.replaceState(null,'',location.pathname+location.search+'#hub')}root.querySelector('#v6lClose').addEventListener('click',close);root.querySelectorAll('.v6l-detail-back').forEach(b=>b.addEventListener('click',()=>show(null)));root.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.open)));chips.forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;update()}));search.addEventListener('input',update);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&root.classList.contains('is-open'))close()});document.querySelectorAll('#resourceGrid .resource-card[data-library-key]').forEach(card=>{const key=card.dataset.libraryKey;card.addEventListener('click',e=>{if(e.target.closest('a[href^="https://"],button:not([data-library-key])'))return;e.preventDefault();show(key)});card.addEventListener('keydown',e=>{if(e.target===card&&(e.key==='Enter'||e.key===' ')){e.preventDefault();show(key)}})});window.openVan6Library=show;if(location.hash.startsWith('#thu-vien-')){const key=location.hash.slice('#thu-vien-'.length);show(details.some(d=>d.dataset.detail===key)?key:null)}update()})();</script><script id="v6l-live-sync-script">
+(function(){
+'use strict';
+// Sau khi triển khai Apps Script, dán URL /exec vào chuỗi bên dưới.
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzC8oddNV7oVF8niM5VpqA4I-q5yAgwQLJ2hmSGrRB1RipMOuPbHF0BPIhe96VtcA4m/exec';
+const ENABLED = /^https:\/\/script\.google\.com\/macros\/s\/.+\/exec(?:\?.*)?$/.test(APPS_SCRIPT_URL);
+const root=document.getElementById('van6Library');if(!root)return;
+const details=[...root.querySelectorAll('.v6l-detail[data-detail]')];
+const dataCache={};const states={};let callbackSeq=0;
+const preview=document.createElement('div');preview.className='v6l-preview';preview.innerHTML='<div class="v6l-preview-panel" role="dialog" aria-modal="true" aria-label="Xem trước tài liệu"><div class="v6l-preview-top"><strong id="v6lPreviewTitle">Xem tài liệu</strong><button class="v6l-preview-close" type="button">✕ Đóng</button></div><iframe title="Xem trước tài liệu" referrerpolicy="no-referrer"></iframe></div>';document.body.appendChild(preview);
+function closePreview(){preview.classList.remove('is-open');preview.querySelector('iframe').src='about:blank'}
+preview.querySelector('button').addEventListener('click',closePreview);preview.addEventListener('click',e=>{if(e.target===preview)closePreview()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&preview.classList.contains('is-open')){e.stopImmediatePropagation();closePreview()}},true);
+function request(category){return new Promise((resolve,reject)=>{
+ const cb='van6_sync_'+(++callbackSeq)+'_'+Date.now();let finished=false;const script=document.createElement('script');const timeout=setTimeout(()=>done(new Error('Hết thời gian kết nối')),15000);
+ function done(err,val){if(finished)return;finished=true;clearTimeout(timeout);delete window[cb];script.remove();err?reject(err):resolve(val)}
+ window[cb]=payload=>done(null,payload);script.onerror=()=>done(new Error('Không tải được dữ liệu từ Apps Script'));
+ const u=new URL(APPS_SCRIPT_URL);u.searchParams.set('category',category);u.searchParams.set('callback',cb);u.searchParams.set('_',String(Date.now()));script.src=u.toString();document.head.appendChild(script);
+ })}
+function create(tag,cls,txt){const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e}
+function safeFileId(id){return /^[a-zA-Z0-9_-]{10,}$/.test(id)}
+function render(key){const s=states[key];if(!s)return;const grid=s.grid;grid.replaceChildren();const q=s.input.value.trim().toLocaleLowerCase('vi');const items=(dataCache[key]||[]).filter(f=>String(f.name||'').toLocaleLowerCase('vi').includes(q));s.status.textContent=`${items.length} tài liệu${q?' phù hợp':''} • Cập nhật từ Google Drive khi tải lại hoặc nhấn Làm mới`;
+ if(!items.length){grid.appendChild(create('p','v6l-sync-state',q?'Không tìm thấy tài liệu phù hợp.':'Thư mục hiện chưa có tệp được liệt kê.'));return}
+ items.forEach(f=>{if(!safeFileId(String(f.id||'')))return;const id=f.id;const card=create('article','v6l-file');const mime=String(f.mimeType||'');const ico=create('div','v6l-file-icon',mime.includes('pdf')?'📕':mime.includes('presentation')?'📊':mime.includes('image')?'🖼️':mime.includes('document')||mime.includes('word')?'📄':'📁');card.append(ico,create('div','v6l-file-title',String(f.name||'Tài liệu')),create('div','v6l-file-meta',String(f.modified||'')));
+ const actions=create('div','v6l-file-actions');const view=create('a','', '👁 Xem trước');view.href='https://drive.google.com/file/d/'+encodeURIComponent(id)+'/view';view.target='_blank';view.rel='noopener noreferrer';view.addEventListener('click',e=>{e.preventDefault();preview.querySelector('#v6lPreviewTitle').textContent=String(f.name||'Xem tài liệu');preview.querySelector('iframe').src='https://drive.google.com/file/d/'+encodeURIComponent(id)+'/preview';preview.classList.add('is-open')});actions.appendChild(view);
+ const download=create('a','', '⬇ Tải về');download.href='https://drive.google.com/uc?export=download&id='+encodeURIComponent(id);download.target='_blank';download.rel='noopener noreferrer';if(mime.startsWith('application/vnd.google-apps.')){download.href='https://drive.google.com/file/d/'+encodeURIComponent(id)+'/view';download.textContent='↗ Mở tệp'}actions.appendChild(download);card.appendChild(actions);grid.appendChild(card)})}
+async function load(key,force){const s=states[key];if(!s||!ENABLED)return;if(!force&&dataCache[key]){render(key);return}s.status.textContent='⏳ Đang lấy danh sách học liệu từ Google Drive…';s.button.disabled=true;
+ try{const result=await request(key);if(!result||result.ok!==true||!Array.isArray(result.files))throw new Error(result&&result.error||'Phản hồi không hợp lệ');dataCache[key]=result.files;render(key)}catch(err){s.status.textContent='⚠️ Chưa đồng bộ được: '+err.message+'. Bạn vẫn có thể mở thư mục Google Drive bên dưới.'}finally{s.button.disabled=false}}
+ details.forEach(detail=>{const key=detail.dataset.detail;const notice=detail.querySelector('.v6l-notice');if(notice){notice.style.display='none'}const container=create('div','v6l-live-section');const tools=create('div','v6l-live-tools');const input=create('input','v6l-live-search');input.type='search';input.placeholder='🔎 Tìm tài liệu trong chuyên mục…';input.setAttribute('aria-label','Tìm tên tài liệu');const button=create('button','v6l-sync-btn','↻ Làm mới');button.type='button';tools.append(input,button);const status=create('p','v6l-sync-state',ENABLED?'Đang chờ mở chuyên mục…':'Chưa kết nối đồng bộ. Hãy triển khai Apps Script theo tệp hướng dẫn, rồi điền URL /exec vào HTML.');const grid=create('div','v6l-file-grid');container.append(tools,status,grid);const link=detail.querySelector('.v6l-link');detail.insertBefore(container,link);states[key]={input,button,status,grid};input.addEventListener('input',()=>render(key));button.addEventListener('click',()=>load(key,true));if(!ENABLED){input.disabled=true;button.disabled=true;const hint=create('div','v6l-setup-hint','⚙️ Cần cấu hình URL Google Apps Script một lần để website tự hiển thị tệp. Nút “Mở kho tài liệu” bên dưới vẫn hoạt động bình thường.');container.insertBefore(hint,tools)}});
+ root.addEventListener('click',e=>{const b=e.target.closest('[data-open]');if(b&&states[b.dataset.open])setTimeout(()=>load(b.dataset.open,false),0);const back=e.target.closest('.v6l-detail-back');if(back)return;});
+ document.querySelectorAll('#resourceGrid .resource-card[data-library-key]').forEach(card=>card.addEventListener('click',()=>{const key=card.dataset.libraryKey;if(states[key])setTimeout(()=>load(key,false),0)}));
+ document.querySelectorAll('#resourceGrid [data-library-key]').forEach(el=>{if(el.matches('a'))el.addEventListener('click',()=>{const key=el.dataset.libraryKey;if(states[key])setTimeout(()=>load(key,false),0)})});
+ if(location.hash.startsWith('#thu-vien-')){const key=location.hash.slice('#thu-vien-'.length);if(states[key])load(key,false)}
+})();
+</script></body>
+</html>
