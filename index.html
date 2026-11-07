@@ -499,6 +499,50 @@ document.addEventListener('DOMContentLoaded',function(){
   #featured .flipbook-feature-layout {grid-template-columns:minmax(0,35%) minmax(0,1fr)!important;}
 }
 </style>
+<style id="mobile-benefits-two-by-two-and-single-line-headings">
+/* Chỉ chỉnh mục lợi ích và hai tiêu đề trên màn hình nhỏ. */
+@media (max-width:767px) {
+  .benefits-four-across {
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:clamp(10px,2.8vw,18px)!important;
+    overflow:visible!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    padding:0!important;
+    scroll-snap-type:none!important;
+  }
+  .benefits-four-across > .benefit-card {
+    min-width:0!important;
+    width:auto!important;
+    flex:none!important;
+    padding:clamp(9px,2.8vw,16px)!important;
+    border-radius:clamp(12px,3vw,22px)!important;
+  }
+  .benefits-four-across > .benefit-card img {
+    width:100%!important;
+    height:auto!important;
+    aspect-ratio:1/1!important;
+    object-fit:cover!important;
+    margin-bottom:9px!important;
+  }
+  .benefits-four-across > .benefit-card p {
+    font-size:clamp(10px,2.6vw,13px)!important;
+    line-height:1.45!important;
+    letter-spacing:normal!important;
+    overflow-wrap:break-word!important;
+  }
+  .benefit-dots,.benefit-hint {display:none!important;}
+  .mobile-single-line-heading {
+    white-space:nowrap!important;
+    overflow-wrap:normal!important;
+    word-break:normal!important;
+    font-size:clamp(10px,3.05vw,22px)!important;
+    letter-spacing:-.045em!important;
+    line-height:1.35!important;
+  }
+}
+</style>
 </head>
 <body class="text-slate-700 antialiased selection:bg-orange-200 selection:text-orange-900"><div class="bg-gradient-to-r from-orange-500 via-rose-500 to-amber-500 text-white text-xs sm:text-sm py-2 px-4 shadow-sm">
 <div class="max-w-7xl mx-auto flex items-center justify-between">
@@ -665,8 +709,8 @@ document.addEventListener('DOMContentLoaded',function(){
 </section><section class="py-12 bg-white border-y border-orange-100">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center max-w-3xl mx-auto space-y-3">
-<h3 class="text-2xl sm:text-3xl font-extrabold text-slate-800 heading-font">
-                    Tại sao cần số hóa học liệu môn Ngữ Văn 6?
+<h3 class="text-2xl sm:text-3xl font-extrabold text-slate-800 heading-font mobile-single-line-heading">
+                    Tại sao cần số hóa học liệu môn Ngữ Văn?
                 </h3>
 </div>
 <div class="benefits-four-across grid grid-cols-4 gap-6 mt-10 items-stretch">
@@ -687,8 +731,7 @@ document.addEventListener('DOMContentLoaded',function(){
 <p class="text-sm text-slate-600 leading-relaxed">Cung cấp sẵn tài liệu cho giáo viên và phiếu bài tập tin cậy để phụ huynh theo sát lộ trình của con.</p>
 </div>
 </div>
-<div aria-label="Vị trí thẻ đang xem" class="benefit-dots md:hidden"><span class="active"></span><span></span><span></span></div>
-<p class="benefit-hint md:hidden">Vuốt sang trái hoặc phải để xem tiếp <span aria-hidden="true">↔</span></p>
+
 </div>
 </section>
 <!-- SECTION: 2 SẢN PHẨM TRỌNG TÂM DỰ THI -->
@@ -700,8 +743,8 @@ document.addEventListener('DOMContentLoaded',function(){
 <div class="inline-flex items-center space-x-2 text-orange-600 text-xs font-extrabold uppercase tracking-widest bg-orange-100 px-3 py-1 rounded-full">
 <span>📚 Kho Tài Nguyên Số Hóa</span>
 </div>
-<h3 class="text-3xl font-extrabold text-slate-800 heading-font">
-                        Thư Viện Học Liệu Tích Hợp
+<h3 class="text-3xl font-extrabold text-slate-800 heading-font mobile-single-line-heading">
+                        Thư Viện Học Liệu Số
                     </h3>
 <p class="text-slate-600 text-sm max-w-2xl">
                         Nguồn tài nguyên phong phú phục vụ toàn diện công tác dạy học của giáo viên và việc tự học của học sinh Trường THCS Khánh Hội.
